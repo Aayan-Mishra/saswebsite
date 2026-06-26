@@ -125,7 +125,7 @@ export default function AboutPage() {
             </Badge>
             <SectionTitle>Built from a Belief That Every Student Can Excel</SectionTitle>
             <SectionSubtitle className="max-w-none">
-              Success at School was founded in 2013 by Dr. Sarah Mitchell, a classroom teacher who saw too many
+              Success at School was founded in 2013 by Lisa Duong, a classroom teacher who saw too many
               bright students fall through the cracks.
             </SectionSubtitle>
             <div className="mt-6 space-y-4 text-text-secondary leading-relaxed">
