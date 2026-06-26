@@ -60,7 +60,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    value: "1300 789 123",
+    value: "1300 572 428",
     description: "Mon-Fri, 9:00 AM - 6:00 PM",
   },
   {

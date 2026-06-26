@@ -18,6 +18,17 @@ export async function POST(request: Request) {
 
   const get = (k: string) => (body[k] == null ? null : String(body[k]));
 
+  if (
+    !process.env.NEXT_PUBLIC_SUPABASE_URL ||
+    !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  ) {
+    console.error("[api/contact] Missing Supabase env vars on the server");
+    return Response.json(
+      { error: "Server not configured", code: "ENV_MISSING" },
+      { status: 500 }
+    );
+  }
+
   // 1. Persist to Supabase
   const supabase = await createServerSupabaseClient();
   const { error } = await supabase.from("contact_messages").insert({
@@ -30,7 +41,10 @@ export async function POST(request: Request) {
 
   if (error) {
     console.error("[api/contact] Supabase insert failed:", error);
-    return Response.json({ error: "Could not save message" }, { status: 500 });
+    return Response.json(
+      { error: "Could not save message", code: error.code, detail: error.message },
+      { status: 500 }
+    );
   }
 
   // 2. Notify admin (best-effort)

@@ -15,8 +15,8 @@ export const SITE_TAGLINE =
 export const BUSINESS = {
   legalName: "Success at School Tutoring",
   email: "hello@successatschool.com.au",
-  phone: "1300 789 123",
-  phoneE164: "+611300789123",
+  phone: "1300 572 428",
+  phoneE164: "+611300572428",
   logo: `${SITE_URL}/logo.png`,
   // Western Sydney service area — strong local-intent signal
   areaServed: [

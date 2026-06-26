@@ -22,9 +22,9 @@ import {
 
 const teamMembers = [
   {
-    name: "Dr. Sarah Mitchell",
+    name: "Lisa Duong",
     role: "Founder & Head of Curriculum",
-    initials: "SM",
+    initials: "LD",
     color: "bg-primary-100 text-primary-700",
   },
   {
@@ -153,10 +153,10 @@ export default function AboutPage() {
             </blockquote>
             <div className="mt-6 flex items-center gap-3">
               <div className="w-12 h-12 rounded-full bg-primary-500 flex items-center justify-center font-bold text-lg">
-                SM
+                LD
               </div>
               <div>
-                <p className="font-semibold">Dr. Sarah Mitchell</p>
+                <p className="font-semibold">Lisa Duong</p>
                 <p className="text-sm text-navy-200">Founder, Success at School</p>
               </div>
             </div>

@@ -343,11 +343,22 @@ export default function EnrolPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      if (!res.ok) throw new Error("Request failed");
-    } catch {
+      if (!res.ok) {
+        const info = await res.json().catch(() => ({}));
+        console.error("Enrolment submit failed:", info);
+        setLoading(false);
+        setSubmitError(
+          `Something went wrong submitting your enrolment${
+            info.code ? ` (${info.code})` : ""
+          }. Please try again, or call us on 1300 572 428 if the problem continues.`
+        );
+        return;
+      }
+    } catch (e) {
+      console.error("Enrolment submit network error:", e);
       setLoading(false);
       setSubmitError(
-        "Something went wrong submitting your enrolment. Please try again, or call us if the problem continues."
+        "Something went wrong submitting your enrolment. Please try again, or call us on 1300 572 428 if the problem continues."
       );
       return;
     }
