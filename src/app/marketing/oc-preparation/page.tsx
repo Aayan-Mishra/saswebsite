@@ -1,4 +1,7 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata, courseSchema, breadcrumbSchema } from "@/lib/seo";
+import { JsonLd } from "@/components/json-ld";
 import { PageHeader } from "@/components/ui/page-header";
 import { Section, SectionTitle, SectionSubtitle } from "@/components/ui/section";
 import { Card, CardContent } from "@/components/ui/card";
@@ -89,9 +92,38 @@ const faqs = [
   },
 ];
 
+export const metadata: Metadata = pageMetadata({
+  title: "OC Test Preparation Tutoring | Year 4 Opportunity Class Prep",
+  description:
+    "Opportunity Class (OC) test preparation for Year 4 students across Western Sydney. Targeted coaching in thinking skills, reading and mathematical reasoning. Book a free assessment.",
+  path: "/marketing/oc-preparation",
+  keywords: [
+    "OC preparation",
+    "OC test tutoring",
+    "Opportunity Class test",
+    "Year 4 OC tutoring",
+    "OC test Western Sydney",
+  ],
+});
+
 export default function OCPreparationPage() {
   return (
     <main>
+      <JsonLd
+        data={courseSchema({
+          name: "OC (Opportunity Class) Test Preparation",
+          description:
+            "Year 4 Opportunity Class placement test preparation covering thinking skills, reading and mathematical reasoning.",
+          path: "/marketing/oc-preparation",
+        })}
+      />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Programs", path: "/marketing/programs" },
+          { name: "OC Preparation", path: "/marketing/oc-preparation" },
+        ])}
+      />
       <PageHeader
         title="OC Preparation"
         description="Give your child the edge they need to succeed in the Opportunity Class Placement Test. Our expert program builds skills, confidence, and a love of learning."

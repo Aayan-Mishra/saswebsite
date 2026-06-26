@@ -1,4 +1,7 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata, courseSchema, breadcrumbSchema } from "@/lib/seo";
+import { JsonLd } from "@/components/json-ld";
 import { PageHeader } from "@/components/ui/page-header";
 import { Section, SectionTitle, SectionSubtitle } from "@/components/ui/section";
 import { Card, CardContent } from "@/components/ui/card";
@@ -98,9 +101,38 @@ const faqs = [
   },
 ];
 
+export const metadata: Metadata = pageMetadata({
+  title: "Selective School Test Preparation | Year 6 Tutoring",
+  description:
+    "Selective High School placement test preparation for Year 6 students across Western Sydney. Master thinking skills, mathematical reasoning, reading and writing. Book an assessment.",
+  path: "/marketing/selective-preparation",
+  keywords: [
+    "selective school preparation",
+    "selective test tutoring",
+    "selective high school placement test",
+    "Year 6 selective tutoring",
+    "selective school Western Sydney",
+  ],
+});
+
 export default function SelectivePreparationPage() {
   return (
     <main>
+      <JsonLd
+        data={courseSchema({
+          name: "Selective High School Test Preparation",
+          description:
+            "Year 6 Selective High School placement test preparation covering thinking skills, mathematical reasoning, reading and writing.",
+          path: "/marketing/selective-preparation",
+        })}
+      />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Programs", path: "/marketing/programs" },
+          { name: "Selective Preparation", path: "/marketing/selective-preparation" },
+        ])}
+      />
       <PageHeader
         title="Selective Preparation"
         description="Your child&apos;s journey to a selective high school placement starts here. Our proven program delivers the academic rigour, strategic insight, and personal support needed to succeed."

@@ -1,4 +1,7 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata, breadcrumbSchema } from "@/lib/seo";
+import { JsonLd } from "@/components/json-ld";
 import { PageHeader } from "@/components/ui/page-header";
 import { Section, SectionTitle, SectionSubtitle } from "@/components/ui/section";
 import { Card, CardContent } from "@/components/ui/card";
@@ -92,9 +95,22 @@ const values = [
   },
 ];
 
+export const metadata: Metadata = pageMetadata({
+  title: "About Us | Western Sydney's OC & Selective Tutors",
+  description:
+    "Meet Success at School — specialist OC, NAPLAN and Selective tutors serving Plumpton, Hassall Grove and Quakers Hill. Our mission, approach and proven student results.",
+  path: "/marketing/about",
+});
+
 export default function AboutPage() {
   return (
     <main>
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "About", path: "/marketing/about" },
+        ])}
+      />
       <PageHeader
         title="About Success at School"
         description="We exist to help students launch ahead — academically, confidently, and with a genuine love for learning. Here is our story."

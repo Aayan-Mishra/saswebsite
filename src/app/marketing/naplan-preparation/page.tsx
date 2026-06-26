@@ -1,4 +1,7 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata, courseSchema, breadcrumbSchema } from "@/lib/seo";
+import { JsonLd } from "@/components/json-ld";
 import { PageHeader } from "@/components/ui/page-header";
 import { Section, SectionTitle, SectionSubtitle } from "@/components/ui/section";
 import { Card, CardContent } from "@/components/ui/card";
@@ -117,9 +120,39 @@ const faqs = [
   },
 ];
 
+export const metadata: Metadata = pageMetadata({
+  title: "NAPLAN Preparation Tutoring | Years 3, 5, 7 & 9",
+  description:
+    "Build confidence for NAPLAN with structured preparation in numeracy, reading, writing and language conventions for Years 3–9 across Western Sydney. Free assessment.",
+  path: "/marketing/naplan-preparation",
+  keywords: [
+    "NAPLAN preparation",
+    "NAPLAN tutoring",
+    "NAPLAN practice tests",
+    "Year 3 NAPLAN",
+    "Year 5 NAPLAN",
+    "NAPLAN Western Sydney",
+  ],
+});
+
 export default function NAPLANPreparationPage() {
   return (
     <main>
+      <JsonLd
+        data={courseSchema({
+          name: "NAPLAN Preparation",
+          description:
+            "NAPLAN preparation for Years 3, 5, 7 and 9 covering numeracy, reading, writing and language conventions.",
+          path: "/marketing/naplan-preparation",
+        })}
+      />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Programs", path: "/marketing/programs" },
+          { name: "NAPLAN Preparation", path: "/marketing/naplan-preparation" },
+        ])}
+      />
       <PageHeader
         title="NAPLAN Success"
         description="Approach NAPLAN with confidence, not anxiety. Our targeted program builds the skills, strategies, and mindset needed to achieve outstanding results."
