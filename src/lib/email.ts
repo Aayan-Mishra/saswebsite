@@ -1,6 +1,7 @@
 import { Resend } from "resend";
 
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.dev";
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL ?? "successatschooltuition@gmail.com";
 
 /**
  * Send a notification email to the admin inbox.
@@ -18,11 +19,10 @@ export async function sendAdminNotification({
   html: string;
 }): Promise<void> {
   const apiKey = process.env.RESEND_API_KEY;
-  const adminEmail = process.env.ADMIN_EMAIL;
 
-  if (!apiKey || !adminEmail) {
+  if (!apiKey) {
     console.warn(
-      "[email] Resend not configured (RESEND_API_KEY / ADMIN_EMAIL missing) — skipping admin notification"
+      "[email] RESEND_API_KEY missing — skipping admin notification"
     );
     return;
   }
@@ -30,7 +30,7 @@ export async function sendAdminNotification({
   const resend = new Resend(apiKey);
   const { error } = await resend.emails.send({
     from: FROM_EMAIL,
-    to: adminEmail,
+    to: ADMIN_EMAIL,
     subject,
     html,
   });
