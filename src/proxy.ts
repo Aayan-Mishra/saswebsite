@@ -62,5 +62,9 @@ export default withAuth(
 );
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\\.(?:png|jpg|jpeg|gif|svg|webp|ico|woff2?|ttf|otf|eot)).*)"],
+  // Exclude Next internals and public static assets from auth. The extension
+  // list must include txt/xml/webmanifest so crawler-facing files (robots.txt,
+  // sitemap.xml, llms.txt, llms-full.txt, manifest.webmanifest) are reachable
+  // without a login — otherwise withAuth redirects them to /auth/login.
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\\.(?:png|jpg|jpeg|gif|svg|webp|ico|woff2?|ttf|otf|eot|txt|xml|webmanifest)).*)"],
 };
