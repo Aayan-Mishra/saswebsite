@@ -1,0 +1,31 @@
+# Success at School
+
+> Premium tutoring from Kindergarten to Year 12 across Western Sydney, Australia. Success at School specialises in OC (Opportunity Class), NAPLAN, and Selective High School preparation, with small-group and one-to-one tuition delivered on-site and online.
+
+Key facts:
+
+- Service area: Western Sydney (Plumpton, Hassall Grove, Quakers Hill, Mount Druitt, Blacktown) and greater Sydney, NSW, Australia.
+- Campuses: Plumpton (Plumpton Neighbourhood Centre), Hassall Grove (Hassall Grove Neighbourhood Centre), Quakers Hill (Breed Australia, Nirimba Education Precinct).
+- Hours: Mon–Fri 3:00pm–8:00pm, Sat 9:00am–4:00pm.
+- Contact: hello@successatschool.com.au · 1300 572 428.
+- Language: en-AU.
+
+## Main pages
+
+- [Home](https://successatschool.com.au/): Overview of programs, campuses, and testimonials.
+- [Enrol](https://successatschool.com.au/enrol): Online enrolment form to book a placement or trial.
+- [Programs](https://successatschool.com.au/marketing/programs): Full range of tutoring programs from Kindergarten to Year 12.
+- [About](https://successatschool.com.au/marketing/about): The Success at School story, team, and teaching approach.
+- [Contact](https://successatschool.com.au/marketing/contact): Campus locations, phone, email, and enquiry details.
+
+## Exam preparation
+
+- [OC Preparation](https://successatschool.com.au/marketing/oc-preparation): Opportunity Class (Year 4) test preparation.
+- [Selective School Preparation](https://successatschool.com.au/marketing/selective-preparation): Selective High School placement test preparation (Year 6).
+- [NAPLAN Preparation](https://successatschool.com.au/marketing/naplan-preparation): NAPLAN literacy and numeracy preparation.
+
+## More
+
+- [Testimonials](https://successatschool.com.au/marketing/testimonials): Parent and student reviews and results.
+- [FAQ](https://successatschool.com.au/marketing/faq): Answers to common questions about enrolment, programs, and fees.
+- [Sitemap](https://successatschool.com.au/sitemap.xml): Machine-readable list of all public pages.
