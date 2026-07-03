@@ -48,6 +48,13 @@ export default withAuth(
       "/auth/login",
       "/auth/callback",
       "/enrol",
+      // Public form submission endpoints — anonymous visitors POST here.
+      // They validate their own input and only allow inserts. Without these,
+      // Kinde's withAuth (which matches publicPaths by prefix — "/api/enrol"
+      // does NOT match "/enrol") redirects the POST to login and the
+      // submission never reaches the handler.
+      "/api/enrol",
+      "/api/contact",
       "/_not-found",
     ],
     loginPageUrl: "/auth/login",

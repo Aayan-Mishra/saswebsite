@@ -1,55 +1,95 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Loader2, AlertCircle, MessageSquare, Search, Send, Trash2 } from "lucide-react";
+import { Loader2, AlertCircle, MessageSquare, Search, Mail, Phone } from "lucide-react";
 import { AdminPageLayout } from "@/components/dashboard/admin-page-layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { createClient } from "@/lib/supabase/client";
 
-interface MessageRow {
+interface ContactMessage {
   id: string;
-  subject: string;
-  body: string;
-  read: boolean;
+  name: string;
+  email: string;
+  phone: string | null;
+  subject: string | null;
+  message: string;
+  status: string;
   created_at: string;
-  sender: { first_name: string; last_name: string; email: string } | null;
-  receiver: { first_name: string; last_name: string; email: string } | null;
 }
 
+const STATUSES = ["new", "read", "replied", "archived"] as const;
+type Status = (typeof STATUSES)[number];
+
+const statusVariant: Record<string, "primary" | "gold" | "navy" | "orange" | "outline"> = {
+  new: "orange",
+  read: "navy",
+  replied: "primary",
+  archived: "outline",
+};
+
 export default function MessagesPage() {
-  const [messages, setMessages] = useState<MessageRow[]>([]);
+  const [messages, setMessages] = useState<ContactMessage[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState("");
-  const [selected, setSelected] = useState<MessageRow | null>(null);
+  const [selected, setSelected] = useState<ContactMessage | null>(null);
+  const [updatingId, setUpdatingId] = useState<string | null>(null);
 
   useEffect(() => {
-    const supabase = createClient();
-    supabase
-      .from("messages")
-      .select("id, subject, body, read, created_at, sender:profiles!sender_id(first_name, last_name, email), receiver:profiles!receiver_id(first_name, last_name, email)")
-      .is("deleted_at", null)
-      .order("created_at", { ascending: false })
-      .then(({ data, error }) => {
-        if (error) setError(error.message);
-        else setMessages(data as unknown as MessageRow[]);
-        setLoading(false);
-      });
+    fetch("/api/admin/contact-messages")
+      .then(async (res) => {
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.error || "Failed to load");
+        setMessages(json.messages as ContactMessage[]);
+      })
+      .catch((e) => setError(e.message))
+      .finally(() => setLoading(false));
   }, []);
+
+  async function updateStatus(id: string, status: Status) {
+    setUpdatingId(id);
+    const previous = messages;
+    setMessages((ms) => ms.map((m) => (m.id === id ? { ...m, status } : m)));
+    setSelected((s) => (s && s.id === id ? { ...s, status } : s));
+    try {
+      const res = await fetch(`/api/admin/contact-messages/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ status }),
+      });
+      if (!res.ok) {
+        const json = await res.json().catch(() => ({}));
+        throw new Error(json.error || "Update failed");
+      }
+    } catch (e) {
+      setMessages(previous);
+      setError(e instanceof Error ? e.message : "Update failed");
+    } finally {
+      setUpdatingId(null);
+    }
+  }
+
+  function openMessage(m: ContactMessage) {
+    setSelected(m);
+    // Auto-advance brand-new messages to "read" on open.
+    if ((m.status || "new") === "new") updateStatus(m.id, "read");
+  }
 
   const filtered = messages.filter((m) => {
     const q = search.toLowerCase();
-    return m.subject.toLowerCase().includes(q)
-      || m.body.toLowerCase().includes(q)
-      || `${m.sender?.first_name} ${m.sender?.last_name}`.toLowerCase().includes(q);
+    return (
+      m.name.toLowerCase().includes(q) ||
+      m.message.toLowerCase().includes(q) ||
+      (m.subject ?? "").toLowerCase().includes(q) ||
+      m.email.toLowerCase().includes(q)
+    );
   });
 
-  const unread = messages.filter((m) => !m.read).length;
+  const unread = messages.filter((m) => (m.status || "new") === "new").length;
 
   return (
-    <AdminPageLayout title="Messages" breadcrumb={[{ label: "Admin" }, { label: "Messages" }]}>
+    <AdminPageLayout title="Contact Messages" breadcrumb={[{ label: "Admin" }, { label: "Messages" }]}>
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-2 bg-white rounded-xl px-4 py-2.5 text-navy-400 text-sm border border-navy-200 flex-1 max-w-md">
           <Search className="h-4 w-4" />
@@ -61,12 +101,8 @@ export default function MessagesPage() {
           />
         </div>
         <div className="text-sm text-navy-500">
-          <span className="font-semibold text-navy-700">{unread}</span> unread
+          <span className="font-semibold text-navy-700">{unread}</span> new
         </div>
-        <Button variant="primary" size="sm">
-          <Send className="h-4 w-4" />
-          Compose
-        </Button>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -80,7 +116,7 @@ export default function MessagesPage() {
               ) : error ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
                   <AlertCircle className="h-8 w-8 text-red-400 mb-2" />
-                  <p className="text-sm text-navy-500">Failed to load</p>
+                  <p className="text-sm text-navy-500">{error}</p>
                 </div>
               ) : filtered.length === 0 ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
@@ -89,30 +125,33 @@ export default function MessagesPage() {
                 </div>
               ) : (
                 <div className="space-y-1">
-                  {filtered.map((m) => (
-                    <button
-                      key={m.id}
-                      onClick={() => setSelected(m)}
-                      className={`w-full text-left p-3 rounded-xl transition-colors ${
-                        selected?.id === m.id
-                          ? "bg-primary-50 border border-primary-200"
-                          : "hover:bg-navy-50 border border-transparent"
-                      } ${!m.read ? "bg-navy-50/70" : ""}`}
-                    >
-                      <div className="flex items-center justify-between gap-2">
-                        <span className={`text-sm truncate ${!m.read ? "font-semibold text-navy-900" : "text-navy-700"}`}>
-                          {m.sender ? `${m.sender.first_name} ${m.sender.last_name}` : "Unknown"}
-                        </span>
-                        <span className="text-xs text-navy-400 shrink-0">
-                          {new Date(m.created_at).toLocaleDateString("en-AU", { day: "numeric", month: "short" })}
-                        </span>
-                      </div>
-                      <p className={`text-xs mt-0.5 truncate ${!m.read ? "font-medium text-navy-700" : "text-navy-500"}`}>
-                        {m.subject}
-                      </p>
-                      <p className="text-xs text-navy-400 mt-0.5 truncate">{m.body}</p>
-                    </button>
-                  ))}
+                  {filtered.map((m) => {
+                    const isNew = (m.status || "new") === "new";
+                    return (
+                      <button
+                        key={m.id}
+                        onClick={() => openMessage(m)}
+                        className={`w-full text-left p-3 rounded-xl transition-colors ${
+                          selected?.id === m.id
+                            ? "bg-primary-50 border border-primary-200"
+                            : "hover:bg-navy-50 border border-transparent"
+                        } ${isNew ? "bg-navy-50/70" : ""}`}
+                      >
+                        <div className="flex items-center justify-between gap-2">
+                          <span className={`text-sm truncate ${isNew ? "font-semibold text-navy-900" : "text-navy-700"}`}>
+                            {m.name}
+                          </span>
+                          <span className="text-xs text-navy-400 shrink-0">
+                            {new Date(m.created_at).toLocaleDateString("en-AU", { day: "numeric", month: "short" })}
+                          </span>
+                        </div>
+                        <p className={`text-xs mt-0.5 truncate ${isNew ? "font-medium text-navy-700" : "text-navy-500"}`}>
+                          {m.subject || "(no subject)"}
+                        </p>
+                        <p className="text-xs text-navy-400 mt-0.5 truncate">{m.message}</p>
+                      </button>
+                    );
+                  })}
                 </div>
               )}
             </CardContent>
@@ -124,34 +163,52 @@ export default function MessagesPage() {
             <CardContent>
               {selected ? (
                 <div>
-                  <div className="flex items-start justify-between mb-6">
+                  <div className="flex items-start justify-between mb-6 gap-4">
                     <div>
-                      <h3 className="text-lg font-bold text-navy-900">{selected.subject}</h3>
-                      <div className="flex items-center gap-3 mt-2 text-sm text-navy-500">
+                      <h3 className="text-lg font-bold text-navy-900">{selected.subject || "(no subject)"}</h3>
+                      <div className="flex items-center gap-3 mt-2 text-sm text-navy-500 flex-wrap">
                         <span>
-                          From: <span className="font-medium text-navy-700">
-                            {selected.sender ? `${selected.sender.first_name} ${selected.sender.last_name}` : "Unknown"}
-                          </span>
+                          From: <span className="font-medium text-navy-700">{selected.name}</span>
                         </span>
                         <span>·</span>
                         <span>{new Date(selected.created_at).toLocaleString("en-AU")}</span>
                       </div>
-                      {selected.sender?.email && (
-                        <p className="text-xs text-navy-400 mt-0.5">{selected.sender.email}</p>
-                      )}
+                      <div className="flex items-center gap-4 mt-1">
+                        <a href={`mailto:${selected.email}`} className="flex items-center gap-1 text-xs text-primary-600 hover:underline">
+                          <Mail className="h-3 w-3" /> {selected.email}
+                        </a>
+                        {selected.phone && (
+                          <a href={`tel:${selected.phone}`} className="flex items-center gap-1 text-xs text-navy-500 hover:underline">
+                            <Phone className="h-3 w-3" /> {selected.phone}
+                          </a>
+                        )}
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Button variant="ghost" size="sm">
-                        <Trash2 className="h-4 w-4 text-red-400" />
-                      </Button>
-                      <Button variant="primary" size="sm">
-                        <Send className="h-4 w-4" />
-                        Reply
-                      </Button>
+                    <div className="flex items-center gap-2 shrink-0">
+                      <Badge variant={statusVariant[selected.status || "new"] || "outline"} size="sm">
+                        {(selected.status || "new").charAt(0).toUpperCase() + (selected.status || "new").slice(1)}
+                      </Badge>
+                      <select
+                        aria-label="Update status"
+                        value={selected.status || "new"}
+                        disabled={updatingId === selected.id}
+                        onChange={(e) => updateStatus(selected.id, e.target.value as Status)}
+                        className="text-xs border border-navy-200 rounded-lg px-2 py-1 bg-white text-navy-700 disabled:opacity-50"
+                      >
+                        {STATUSES.map((s) => (
+                          <option key={s} value={s}>{s}</option>
+                        ))}
+                      </select>
+                      <a href={`mailto:${selected.email}?subject=Re: ${encodeURIComponent(selected.subject || "Your enquiry")}`}>
+                        <Button variant="primary" size="sm">
+                          <Mail className="h-4 w-4" />
+                          Reply
+                        </Button>
+                      </a>
                     </div>
                   </div>
                   <div className="prose prose-sm max-w-none text-navy-700 whitespace-pre-wrap">
-                    {selected.body}
+                    {selected.message}
                   </div>
                 </div>
               ) : (
