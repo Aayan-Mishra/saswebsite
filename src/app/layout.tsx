@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | Success at School",
   },
   description:
-    "Premium K–12 tutoring across Western Sydney — Plumpton, Hassall Grove & Quakers Hill. Specialists in OC, NAPLAN and Selective School preparation. Book a free assessment.",
+    "Premium K–12 tutoring in Western Sydney — Plumpton, Hassall Grove & Quakers Hill. OC, NAPLAN & Selective School prep. Book a free assessment.",
   applicationName: SITE_NAME,
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
@@ -78,8 +78,17 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
     apple: "/logo.png",
   },
-  // Add real verification tokens when you set up Search Console / Bing:
-  // verification: { google: "...", other: { "msvalidate.01": "..." } },
+  // Verification tokens are read from env so they can be set per-deploy without
+  // a code change. Set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION (Search Console) and
+  // NEXT_PUBLIC_BING_SITE_VERIFICATION (Bing Webmaster Tools).
+  verification: {
+    ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+      : {}),
+    ...(process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { other: { "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION } }
+      : {}),
+  },
 };
 
 export const viewport: Viewport = {

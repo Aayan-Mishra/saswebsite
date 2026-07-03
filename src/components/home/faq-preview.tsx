@@ -5,6 +5,8 @@ import { Section, SectionTitle, SectionSubtitle } from "@/components/ui/section"
 import { cn } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
+import { JsonLd } from "@/components/json-ld";
+import { faqSchema } from "@/lib/seo";
 
 const faqs = [
   {
@@ -43,6 +45,7 @@ export function FaqPreview() {
 
   return (
     <Section id="faq">
+      <JsonLd data={faqSchema(faqs)} />
       <div className="text-center mb-12">
         <SectionTitle>Got Questions?</SectionTitle>
         <SectionSubtitle className="mx-auto">
