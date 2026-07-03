@@ -152,6 +152,18 @@ export default function OCPreparationPage() {
                 At Success at School, we have helped hundreds of students secure coveted OC placements through a
                 program that balances rigorous academics with genuine intellectual engagement.
               </p>
+              <p>
+                The OC Test is administered by the{" "}
+                <a
+                  href="https://education.nsw.gov.au/public-schools/selective-high-schools-and-opportunity-classes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-primary-600 underline underline-offset-2 hover:text-primary-700"
+                >
+                  NSW Department of Education
+                </a>
+                , which publishes the official test dates, eligibility criteria, and application process each year.
+              </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-4">
               <div className="flex items-center gap-2 text-sm font-medium text-navy-800">

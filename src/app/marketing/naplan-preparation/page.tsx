@@ -180,6 +180,18 @@ export default function NAPLANPreparationPage() {
                 Strong NAPLAN results build confidence and open doors. They provide an objective measure of progress,
                 highlight areas for growth, and give schools valuable data to support each student&apos;s learning journey.
               </p>
+              <p>
+                NAPLAN is developed and administered nationally by{" "}
+                <a
+                  href="https://www.nap.edu.au"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-primary-600 underline underline-offset-2 hover:text-primary-700"
+                >
+                  ACARA (nap.edu.au)
+                </a>
+                , where families can find official test dates, sample questions, and public reports.
+              </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-4">
               <div className="flex items-center gap-2 text-sm font-medium text-navy-800">

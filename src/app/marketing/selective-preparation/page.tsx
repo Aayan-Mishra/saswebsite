@@ -160,6 +160,27 @@ export default function SelectivePreparationPage() {
                 the guidance of expert tutors who understand the test intimately. At Success at School, we have built
                 a program that consistently delivers outstanding results.
               </p>
+              <p>
+                Placement and applications are managed by the{" "}
+                <a
+                  href="https://education.nsw.gov.au/public-schools/selective-high-schools-and-opportunity-classes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-primary-600 underline underline-offset-2 hover:text-primary-700"
+                >
+                  NSW Department of Education
+                </a>
+                , with the test itself set against the{" "}
+                <a
+                  href="https://educationstandards.nsw.edu.au"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-primary-600 underline underline-offset-2 hover:text-primary-700"
+                >
+                  NSW Education Standards Authority
+                </a>{" "}
+                curriculum.
+              </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-4">
               <div className="flex items-center gap-2 text-sm font-medium text-navy-800">
