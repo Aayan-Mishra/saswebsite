@@ -27,11 +27,15 @@ const item = {
 export function Hero() {
   return (
     <section className="relative overflow-hidden py-20 md:py-32 lg:py-40">
-      {/* Background video */}
+      {/* Background video — 16:9 (1920x1080) sized to fully cover the hero with
+          no letterboxing. aspect-ratio holds 16:9 while min-w/h:100% guarantee
+          it always overflows the container on the shorter axis (cropped, never
+          distorted, never leaving negative space). */}
       <div className="absolute inset-0 overflow-hidden">
         <iframe
           src="https://player.vimeo.com/video/1206654297?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1"
-          className="absolute inset-0 w-full h-full scale-150 pointer-events-none"
+          className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          style={{ aspectRatio: "16 / 9", minWidth: "100%", minHeight: "100%", width: "auto", height: "auto" }}
           allow="autoplay; fullscreen; picture-in-picture"
           title="RAILWAY - WEBSITE"
         />

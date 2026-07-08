@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Providers } from "@/components/providers";
 import { JsonLd } from "@/components/json-ld";
+import { PageTransition } from "@/components/page-transition";
 import { SITE_URL, SITE_NAME, siteGraph } from "@/lib/seo";
 
 const inter = Inter({
@@ -108,7 +109,9 @@ export default function RootLayout({
         <JsonLd data={siteGraph()} />
         <Providers>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1">
+            <PageTransition>{children}</PageTransition>
+          </main>
           <Footer />
         </Providers>
       </body>

@@ -1,5 +1,6 @@
 import { Section, SectionTitle } from "@/components/ui/section";
 import { Card } from "@/components/ui/card";
+import { Reveal } from "@/components/ui/reveal";
 import { Users, Star, Clock, TrendingUp } from "lucide-react";
 
 const stats = [
@@ -42,13 +43,13 @@ export function TrustStats() {
         </SectionTitle>
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-        {stats.map((stat) => {
+        {stats.map((stat, i) => {
           const Icon = stat.icon;
           return (
+            <Reveal key={stat.label} delay={i * 0.08} className="h-full">
             <Card
-              key={stat.label}
               padding="lg"
-              className="text-center"
+              className="text-center h-full"
               hover
             >
               <div
@@ -63,6 +64,7 @@ export function TrustStats() {
                 {stat.label}
               </p>
             </Card>
+            </Reveal>
           );
         })}
       </div>

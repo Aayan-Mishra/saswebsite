@@ -1,4 +1,5 @@
 import { Section, SectionTitle, SectionSubtitle } from "@/components/ui/section";
+import { Reveal } from "@/components/ui/reveal";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import {
@@ -80,10 +81,11 @@ export function ProgramsGrid() {
         </SectionSubtitle>
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {programs.map((program) => {
+        {programs.map((program, i) => {
           const Icon = program.icon;
           return (
-            <Card key={program.title} padding="lg" hover>
+            <Reveal key={program.title} delay={(i % 3) * 0.08} className="h-full">
+            <Card padding="lg" hover className="h-full">
               <div
                 className={cn(
                   "mb-5 flex h-12 w-12 items-center justify-center rounded-xl",
@@ -106,6 +108,7 @@ export function ProgramsGrid() {
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Card>
+            </Reveal>
           );
         })}
       </div>
