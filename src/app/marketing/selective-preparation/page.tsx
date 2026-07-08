@@ -51,7 +51,7 @@ const features = [
     icon: Users,
     title: "Small Group Tuition",
     description:
-      "With max 8 students per class, every child receives individual attention. Tutors know each student&apos;s strengths, weaknesses, and progress trajectory.",
+      "In small classes, every child receives individual attention. Tutors know each student&apos;s strengths, weaknesses, and progress trajectory.",
   },
   {
     icon: Brain,

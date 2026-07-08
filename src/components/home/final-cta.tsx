@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
@@ -12,21 +13,25 @@ export function FinalCta() {
           Join hundreds of successful students. Start your journey today.
         </p>
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button
-            variant="secondary"
-            size="lg"
-            className="bg-white text-primary-600 hover:bg-white/90 hover:text-primary-700 border-none shadow-lg shadow-black/10"
-          >
-            Enrol Now
-            <ArrowRight className="h-5 w-5" />
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-white text-white hover:bg-white/10"
-          >
-            Book a Free Assessment
-          </Button>
+          <Link href="/enrol">
+            <Button
+              variant="secondary"
+              size="lg"
+              className="bg-white text-primary-600 hover:bg-white/90 hover:text-primary-700 border-none shadow-lg shadow-black/10"
+            >
+              Enrol Now
+              <ArrowRight className="h-5 w-5" />
+            </Button>
+          </Link>
+          <Link href="/marketing/contact">
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-white text-white hover:bg-white/10"
+            >
+              Book a Free Assessment
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 # Success at School — Full Reference
 
-> Success at School is a premium tutoring provider for students from Kindergarten to Year 12, based in Western Sydney, New South Wales, Australia. Founded in 2003 by former classroom teacher Lisa Duong, it specialises in Opportunity Class (OC), NAPLAN, and Selective High School placement test preparation, alongside general primary and high school tutoring. Tuition is delivered in small groups (maximum 4 students) and one-on-one, both on-site and online.
+> Success at School is a premium tutoring provider for students from Kindergarten to Year 12, based in Western Sydney, New South Wales, Australia. Founded in 2003 by former classroom teacher Lisa Duong, it specialises in Opportunity Class (OC), NAPLAN, and Selective High School placement test preparation, alongside general primary and high school tutoring. Tuition is delivered in small classes and one-on-one, both on-site and online.
 
 ## What is Success at School?
 
@@ -10,7 +10,7 @@ Success at School is an educational organisation and local tutoring business ser
 - Founder: Lisa Duong (former classroom teacher)
 - Levels served: Kindergarten to Year 12
 - Region: Western Sydney, NSW, Australia
-- Delivery: small group (max 4 students) and one-on-one; on-site and online
+- Delivery: small classes and one-on-one; on-site and online
 - Language: English (en-AU)
 
 ## Contact
@@ -19,7 +19,7 @@ Success at School is an educational organisation and local tutoring business ser
 - Phone: 1300 572 428
 - Enrol: https://successatschool.com.au/enrol
 - Contact page: https://successatschool.com.au/marketing/contact
-- Hours: Monday–Friday 3:00pm–8:00pm, Saturday 9:00am–4:00pm
+- Hours: Monday–Friday 9:00am–9:00pm, Saturday 9:00am–5:00pm, Sunday closed
 
 ## Campuses
 
@@ -50,7 +50,7 @@ Q: What are your fees and how do payment plans work?
 A: Fees vary by program, year level, and session format (group or individual). Flexible fortnightly and monthly payment plans are available. Contact Success at School for a personalised fee schedule.
 
 Q: Do you offer small group or one-on-one tutoring?
-A: Both. Small group sessions have a maximum of 4 students for collaborative learning, and dedicated one-on-one tutoring is available for students who need individual attention. Families can mix both formats across subjects.
+A: Both. Small classes support collaborative learning, and dedicated one-on-one tutoring is available for students who need individual attention. Families can mix both formats across subjects.
 
 Q: Can we try a lesson before committing?
 A: Yes. A no-obligation trial lesson is offered so families can experience the teaching approach before committing.

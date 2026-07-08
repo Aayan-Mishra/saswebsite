@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
@@ -79,13 +80,17 @@ export function Hero() {
             variants={item}
             className="mt-10 flex flex-col sm:flex-row items-center gap-4"
           >
-            <Button variant="primary" size="lg">
-              Enrol Now
-              <ArrowRight className="h-5 w-5" />
-            </Button>
-            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-              Book a Consultation
-            </Button>
+            <Link href="/enrol">
+              <Button variant="primary" size="lg">
+                Enrol Now
+                <ArrowRight className="h-5 w-5" />
+              </Button>
+            </Link>
+            <Link href="/marketing/contact">
+              <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
+                Book a Consultation
+              </Button>
+            </Link>
           </motion.div>
 
           <motion.div

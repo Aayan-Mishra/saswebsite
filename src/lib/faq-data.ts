@@ -23,7 +23,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "What class formats do you offer?",
     answer:
-      "We offer small-group classes (max 8 students per group), one-on-one private tutoring, and intensive holiday workshops. Each format is designed to suit different learning styles, goals, and schedules. Our team can help you choose the right format for your child.",
+      "We offer small-group classes, one-on-one private tutoring, and intensive holiday workshops. Each format is designed to suit different learning styles, goals, and schedules. Our team can help you choose the right format for your child.",
     category: "Programs",
   },
   {

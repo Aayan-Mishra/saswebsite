@@ -17,7 +17,7 @@ const faqs = [
   {
     question: "Do you offer small group or one-on-one tutoring?",
     answer:
-      "Both. We provide small group sessions (max 4 students) for collaborative learning, as well as dedicated one-on-one tutoring for students who need individual attention. Many families choose a mix of both formats across different subjects.",
+      "Both. We provide small group sessions for collaborative learning, as well as dedicated one-on-one tutoring for students who need individual attention. Many families choose a mix of both formats across different subjects.",
   },
   {
     question: "Can we try a lesson before committing?",

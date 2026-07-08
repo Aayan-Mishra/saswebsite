@@ -43,7 +43,7 @@ const features = [
     icon: Users,
     title: "Small Group Classes",
     description:
-      "With a maximum of 8 students per group, every child receives personalised attention and targeted feedback from their tutor.",
+      "In small classes, every child receives personalised attention and targeted feedback from their tutor.",
   },
   {
     icon: Brain,
@@ -206,7 +206,7 @@ export default function OCPreparationPage() {
               </div>
               <div className="flex justify-between items-center pt-4">
                 <span className="text-text-secondary">Class size</span>
-                <span className="font-semibold text-navy-900">Max 8 students</span>
+                <span className="font-semibold text-navy-900">Small classes</span>
               </div>
               <div className="flex justify-between items-center pt-4">
                 <span className="text-text-secondary">Mock tests</span>

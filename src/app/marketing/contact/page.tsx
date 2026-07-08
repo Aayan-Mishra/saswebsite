@@ -43,17 +43,17 @@ const campuses = [
   {
     name: "Plumpton Neighbourhood Centre",
     address: "337 Rooty Hill Rd N, Plumpton NSW 2761",
-    hours: "Mon-Fri 3:00 PM - 8:00 PM, Sat 9:00 AM - 4:00 PM",
+    hours: "Mon-Fri 9:00 AM - 9:00 PM, Sat 9:00 AM - 5:00 PM, Sun Closed",
   },
   {
     name: "Hassall Grove Neighbourhood Centre",
     address: "25 Melanie St, Hassall Grove NSW 2761",
-    hours: "Mon-Fri 3:00 PM - 8:00 PM, Sat 9:00 AM - 4:00 PM",
+    hours: "Mon-Fri 9:00 AM - 9:00 PM, Sat 9:00 AM - 5:00 PM, Sun Closed",
   },
   {
     name: "Breed Australia",
     address: "T2A Nirimba Education Precinct, Warawara Cct, Quakers Hill NSW 2763",
-    hours: "Mon-Fri 3:00 PM - 8:00 PM, Sat 9:00 AM - 4:00 PM",
+    hours: "Mon-Fri 9:00 AM - 9:00 PM, Sat 9:00 AM - 5:00 PM, Sun Closed",
   },
 ];
 
@@ -62,7 +62,7 @@ const contactInfo = [
     icon: Phone,
     title: "Phone",
     value: "1300 572 428",
-    description: "Mon-Fri, 9:00 AM - 6:00 PM",
+    description: "Mon-Fri, 9:00 AM - 9:00 PM",
   },
   {
     icon: Mail,
@@ -79,8 +79,8 @@ const contactInfo = [
   {
     icon: Clock,
     title: "Operating Hours",
-    value: "Mon-Fri: 3 PM - 8 PM",
-    description: "Saturday: 9 AM - 4 PM",
+    value: "Mon-Fri: 9 AM - 9 PM",
+    description: "Sat: 9 AM - 5 PM · Sun: Closed",
   },
 ];
 

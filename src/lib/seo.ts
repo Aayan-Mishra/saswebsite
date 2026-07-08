@@ -68,15 +68,16 @@ const OPENING_HOURS = [
   {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "15:00",
-    closes: "20:00",
+    opens: "09:00",
+    closes: "21:00",
   },
   {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: "Saturday",
     opens: "09:00",
-    closes: "16:00",
+    closes: "17:00",
   },
+  // Sunday is intentionally omitted — days not listed are treated as closed.
 ];
 
 /** Resolve a path against the canonical site origin. */

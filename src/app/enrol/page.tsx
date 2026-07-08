@@ -72,7 +72,7 @@ const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
 const PREFERRED_TIMES = [
   { value: "morning", label: "Morning (9am - 12pm)" },
   { value: "afternoon", label: "Afternoon (12pm - 4pm)" },
-  { value: "evening", label: "Evening (4pm - 8pm)" },
+  { value: "evening", label: "Evening (4pm - 9pm)" },
 ];
 
 const SESSION_FORMATS = [

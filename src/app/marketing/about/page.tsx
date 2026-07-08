@@ -316,9 +316,9 @@ export default function AboutPage() {
               <div className="flex items-start gap-3">
                 <Star className="h-5 w-5 text-gold-500 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="font-semibold text-navy-900 text-sm">Small Group Guarantee</p>
+                  <p className="font-semibold text-navy-900 text-sm">Small Class Guarantee</p>
                   <p className="text-xs text-text-secondary mt-0.5">
-                    Maximum 8 students per class ensures every child gets the attention they deserve.
+                    Small classes ensure every child gets the attention they deserve.
                   </p>
                 </div>
               </div>
