@@ -20,7 +20,7 @@ const programs = [
       "Build early literacy, numeracy, and social skills to give your child a confident head start.",
     color: "text-primary-500",
     bg: "bg-primary-100",
-    href: "/programs/kindergarten",
+    href: "/marketing/programs",
   },
   {
     icon: BookOpen,
@@ -29,7 +29,7 @@ const programs = [
       "Strengthen core subjects and develop critical thinking skills across all key learning areas.",
     color: "text-secondary-500",
     bg: "bg-secondary-100",
-    href: "/programs/primary",
+    href: "/marketing/programs",
   },
   {
     icon: Target,
@@ -38,7 +38,7 @@ const programs = [
       "Targeted strategy and practice for Opportunity Class placement with past paper mastery.",
     color: "text-orange-500",
     bg: "bg-orange-100",
-    href: "/programs/oc-preparation",
+    href: "/marketing/oc-preparation",
   },
   {
     icon: BarChart3,
@@ -47,7 +47,7 @@ const programs = [
       "Confidence-building preparation across all NAPLAN domains with proven test-taking strategies.",
     color: "text-navy-500",
     bg: "bg-navy-100",
-    href: "/programs/naplan",
+    href: "/marketing/naplan-preparation",
   },
   {
     icon: Award,
@@ -56,7 +56,7 @@ const programs = [
       "Comprehensive Selective exam training with mock tests, time management, and targeted feedback.",
     color: "text-gold-500",
     bg: "bg-gold-100",
-    href: "/programs/selective",
+    href: "/marketing/selective-preparation",
   },
   {
     icon: GraduationCap,
@@ -65,7 +65,7 @@ const programs = [
       "Expert support across Year 7–12 subjects with aligned syllabus content and exam preparation.",
     color: "text-primary-500",
     bg: "bg-primary-100",
-    href: "/programs/high-school",
+    href: "/marketing/programs",
   },
 ];
 

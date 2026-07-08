@@ -19,7 +19,7 @@ const stats = [
   },
   {
     icon: Clock,
-    value: "15+",
+    value: "20+",
     label: "Years Experience",
     color: "text-navy-500",
     bg: "bg-navy-100",

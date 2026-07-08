@@ -92,7 +92,7 @@ export function FaqPreview() {
       </div>
       <div className="mt-10 text-center">
         <Link
-          href="/faq"
+          href="/marketing/faq"
           className="inline-flex items-center gap-2 text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors"
         >
           View All FAQs
