@@ -51,7 +51,7 @@ const quickActions = [
 ];
 
 const messages = [
-  { from: "Sarah Mitchell", preview: "Year 12 student needs extra session this week...", time: "2m ago" },
+  { from: "Lisa Mitchell", preview: "Year 12 student needs extra session this week...", time: "2m ago" },
   { from: "David Kim", preview: "Parent enquiry about Selective program availability...", time: "1h ago" },
   { from: "Lisa Wang", preview: "Attendance report for Term 1 is ready for review...", time: "3h ago" },
 ];

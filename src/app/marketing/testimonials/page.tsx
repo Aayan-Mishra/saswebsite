@@ -35,7 +35,7 @@ const testimonials = [
     outcome: "Child received Selective offer",
   },
   {
-    name: "Sarah Williams",
+    name: "Lisa Williams",
     role: "Student",
     avatar: "SW",
     color: "bg-secondary-100 text-secondary-700",

@@ -5,7 +5,7 @@ import { Star } from "lucide-react";
 const testimonials = [
   {
     initials: "SM",
-    name: "Sarah Mitchell",
+    name: "Lisa Mitchell",
     role: "Parent of Year 5 Student",
     rating: 5,
     quote:

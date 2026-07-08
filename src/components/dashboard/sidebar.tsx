@@ -155,7 +155,7 @@ const roleNav: Record<string, MenuItem[]> = {
 
 const roleUser: Record<string, { name: string; email: string }> = {
   admin: { name: "Admin User", email: "admin@successatschool.com.au" },
-  tutor: { name: "Sarah Mitchell", email: "sarah@successatschool.com.au" },
+  tutor: { name: "Lisa Mitchell", email: "lisa@successatschool.com.au" },
   parent: { name: "Parent", email: "parent@email.com" },
 };
 

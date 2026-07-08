@@ -81,7 +81,7 @@ export default function TutorDashboard() {
               <Bell className="h-5 w-5" />
               <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">2</span>
             </button>
-            <DashboardUserMenu fallbackName="Sarah Mitchell" fallbackRole="Senior Tutor" />
+            <DashboardUserMenu fallbackName="Lisa Mitchell" fallbackRole="Senior Tutor" />
           </div>
         </header>
 

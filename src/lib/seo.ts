@@ -149,7 +149,7 @@ export function organizationSchema() {
     telephone: BUSINESS.phoneE164,
     priceRange: "$$",
     slogan: SITE_TAGLINE,
-    foundingDate: "2013",
+    foundingDate: "2003",
     founder: { "@type": "Person", name: "Lisa Duong" },
     description:
       "Premium tutoring from Kindergarten to Year 12 across Western Sydney, specialising in OC, NAPLAN and Selective School preparation.",
