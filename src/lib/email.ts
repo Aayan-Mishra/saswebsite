@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.dev";
+const FROM_EMAIL = process.env.RESEND_FROM_EMAIL ?? "hello@updates.successatschool.com.au";
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL ?? "successatschooltuition@gmail.com";
 
 /**
