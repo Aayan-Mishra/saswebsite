@@ -93,7 +93,7 @@ export function Header() {
 
           <div className="flex items-center gap-3">
             <LoginLink>
-              <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
+              <Button variant="ghost" size="sm" className="hidden sm:inline-flex hidden">
                 Log In
               </Button>
             </LoginLink>
@@ -144,7 +144,7 @@ export function Header() {
           </div>
           <div className="mt-4 flex flex-col gap-3 px-4">
             <LoginLink>
-              <Button variant="secondary" className="w-full">
+              <Button variant="secondary" className="w-full hidden">
                 Log In
               </Button>
             </LoginLink>
