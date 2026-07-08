@@ -73,7 +73,7 @@ const faqs = [
   {
     question: "How are OC classes different from regular classes?",
     answer:
-      "OC classes offer a enriched curriculum with greater depth, faster pacing, and exposure to more complex concepts. They are designed for gifted and high-potential students.",
+      "OC classes offer an enriched curriculum with greater depth, faster pacing, and exposure to more complex concepts. They are designed for gifted and high-potential students.",
   },
   {
     question: "What is the OC test format?",

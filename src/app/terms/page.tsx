@@ -30,7 +30,7 @@ export default function TermsOfServicePage() {
       <h2>1. Our services</h2>
       <p>
         We provide educational tutoring and exam-preparation services for students from Kindergarten to Year 12,
-        delivered in small groups or one-to-one, on-site and online. While we work hard to support each student&rsquo;s
+        delivered in small groups or one-on-one, on-site and online. While we work hard to support each student&rsquo;s
         progress, we do not guarantee any particular academic result, placement, examination outcome, or score.
       </p>
 

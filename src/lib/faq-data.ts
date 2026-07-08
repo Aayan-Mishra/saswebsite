@@ -71,7 +71,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "What is your refund and cancellation policy?",
     answer:
-      "We offer a full 14-day satisfaction guarantee from the start of your first term. After this period, cancellations require 2 weeks notice. Refunds for remaining prepaid sessions are processed within 5 business days. Holiday programs and intensives have a separate cancellation policy outlined at enrolment.",
+      "We offer a full 14-day satisfaction guarantee from the start of your first term. After this period, cancellations require 2 weeks' notice. Refunds for remaining prepaid sessions are processed within 5 business days. Holiday programs and intensives have a separate cancellation policy outlined at enrolment.",
     category: "Policies",
   },
   {

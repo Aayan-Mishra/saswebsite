@@ -37,7 +37,7 @@ const benefits = [
   },
   {
     icon: Users,
-    title: "Small Groups & 1-on-1",
+    title: "Small Groups & One-on-One",
     description:
       "Flexible formats to suit every learner",
   },
@@ -94,7 +94,7 @@ export function WhyChooseUs() {
               <div className="space-y-4">
                 <div className="rounded-xl bg-white/10 p-4">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-sm font-medium text-white">Maths Progress</span>
+                    <span className="text-sm font-medium text-white">Mathematics Progress</span>
                     <span className="text-sm text-primary-300">+24%</span>
                   </div>
                   <div className="h-2 rounded-full bg-white/10">

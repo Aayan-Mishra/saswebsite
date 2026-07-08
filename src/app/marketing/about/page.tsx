@@ -79,7 +79,7 @@ const values = [
     icon: Heart,
     title: "Genuine Care",
     description:
-      "We invest in every student as an individual. Their confidence, wellbeing, and love of learning matters as much as their test scores.",
+      "We invest in every student as an individual. Their confidence, wellbeing, and love of learning matter as much as their test scores.",
   },
   {
     icon: Target,

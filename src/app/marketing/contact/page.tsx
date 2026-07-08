@@ -35,7 +35,7 @@ const subjectOptions = [
 
 const campusLocations = [
   { name: "Plumpton Neighbourhood Centre", address: "337 Rooty Hill Rd N, Plumpton NSW 2761", lat: -33.7507, lng: 150.8414 },
-  { name: "Hassall Grove Neighbourhood Centre", address: "1 Cnr Osmond Court &, 25 Melanie St, Hassall Grove NSW 2761", lat: -33.732, lng: 150.8372 },
+  { name: "Hassall Grove Neighbourhood Centre", address: "25 Melanie St, Hassall Grove NSW 2761", lat: -33.732, lng: 150.8372 },
   { name: "Breed Australia", address: "T2A Nirimba Education Precinct, Warawara Cct, Quakers Hill NSW 2763", lat: -33.7307, lng: 150.8831 },
 ];
 
@@ -47,7 +47,7 @@ const campuses = [
   },
   {
     name: "Hassall Grove Neighbourhood Centre",
-    address: "1 Cnr Osmond Court &, 25 Melanie St, Hassall Grove NSW 2761",
+    address: "25 Melanie St, Hassall Grove NSW 2761",
     hours: "Mon-Fri 3:00 PM - 8:00 PM, Sat 9:00 AM - 4:00 PM",
   },
   {

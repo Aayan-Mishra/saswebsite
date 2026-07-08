@@ -4,12 +4,12 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    initials: "SM",
+    initials: "LM",
     name: "Lisa Mitchell",
     role: "Parent of Year 5 Student",
     rating: 5,
     quote:
-      "The transformation in our daughter's confidence has been remarkable. She went from dreading maths to actually looking forward to her tutoring sessions. The personalised approach made all the difference.",
+      "The transformation in our daughter's confidence has been remarkable. She went from dreading Mathematics to actually looking forward to her tutoring sessions. The personalised approach made all the difference.",
     outcome: "Achieved 95% in OC Placement Test",
     color: "bg-primary-100 text-primary-700",
   },

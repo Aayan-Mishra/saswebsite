@@ -76,14 +76,14 @@ const PREFERRED_TIMES = [
 ];
 
 const SESSION_FORMATS = [
-  { value: "online", label: "Online", icon: Monitor, description: "Live 1-on-1 via video call" },
+  { value: "online", label: "Online", icon: Monitor, description: "Live one-on-one via video call" },
   { value: "in-person", label: "In-Person", icon: MapPin, description: "Face-to-face at our campus" },
   { value: "hybrid", label: "Hybrid", icon: Users, description: "Flexible mix of both" },
 ];
 
 const CLASS_TYPES = [
   { value: "group", label: "Group", icon: Users, description: "Small group with peers" },
-  { value: "private", label: "Private", icon: User, description: "Undivided 1-on-1 attention" },
+  { value: "private", label: "Private", icon: User, description: "Undivided one-on-one attention" },
 ];
 
 interface EnrolmentData {

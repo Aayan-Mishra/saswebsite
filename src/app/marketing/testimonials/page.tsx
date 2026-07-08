@@ -37,7 +37,7 @@ const testimonials = [
   {
     name: "Lisa Williams",
     role: "Student",
-    avatar: "SW",
+    avatar: "LW",
     color: "bg-secondary-100 text-secondary-700",
     rating: 5,
     program: "HSC Excellence",
@@ -106,10 +106,10 @@ const testimonials = [
     avatar: "DT",
     color: "bg-navy-100 text-navy-800",
     rating: 5,
-    program: "Subject Specialist (Maths)",
+    program: "Subject Specialist (Mathematics)",
     quote:
-      "I was completely stuck in Extension 2 Maths. My tutor helped me see the beauty in the problems instead of just the difficulty. I ended up coming first in my cohort. Could not have done it without this place.",
-    outcome: "First in cohort for Maths Extension 2",
+      "I was completely stuck in Extension 2 Mathematics. My tutor helped me see the beauty in the problems instead of just the difficulty. I ended up coming first in my cohort. Could not have done it without this place.",
+    outcome: "First in cohort for Mathematics Extension 2",
   },
   {
     name: "Rebecca Morrison",

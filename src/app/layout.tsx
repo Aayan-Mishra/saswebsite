@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     "Quakers Hill tutoring",
     "primary school tutoring",
     "high school tutoring",
-    "maths and English tutoring",
+    "mathematics and English tutoring",
   ],
   formatDetection: { telephone: true, email: true, address: true },
   robots: {
