@@ -1,5 +1,6 @@
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { sendAdminNotification, renderAdminEmail } from "@/lib/email";
+import { verifyTurnstile, getClientIp } from "@/lib/turnstile";
 
 export async function POST(request: Request) {
   let body: Record<string, unknown>;
@@ -12,6 +13,18 @@ export async function POST(request: Request) {
   if (!body?.name || !body?.email || !body?.message) {
     return Response.json(
       { error: "Missing required field (name, email, message)" },
+      { status: 400 }
+    );
+  }
+
+  // Anti-spam: verify Cloudflare Turnstile (skipped if not configured).
+  const captchaOk = await verifyTurnstile(
+    body.turnstileToken as string | undefined,
+    getClientIp(request)
+  );
+  if (!captchaOk) {
+    return Response.json(
+      { error: "Verification failed. Please try again.", code: "CAPTCHA_FAILED" },
       { status: 400 }
     );
   }

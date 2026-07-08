@@ -1,5 +1,6 @@
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 import { sendAdminNotification, formatYearLevel, renderAdminEmail } from "@/lib/email";
+import { verifyTurnstile, getClientIp } from "@/lib/turnstile";
 
 const REQUIRED_FIELDS = [
   "yearLevel",
@@ -24,6 +25,18 @@ export async function POST(request: Request) {
     if (!body?.[field]) {
       return Response.json({ error: `Missing field: ${field}` }, { status: 400 });
     }
+  }
+
+  // Anti-spam: verify Cloudflare Turnstile (skipped if not configured).
+  const captchaOk = await verifyTurnstile(
+    body.turnstileToken as string | undefined,
+    getClientIp(request)
+  );
+  if (!captchaOk) {
+    return Response.json(
+      { error: "Verification failed. Please try again.", code: "CAPTCHA_FAILED" },
+      { status: 400 }
+    );
   }
 
   const get = (k: string) => (body[k] == null ? null : String(body[k]));

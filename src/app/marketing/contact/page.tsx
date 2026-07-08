@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Map, MapMarker, MarkerContent, MapControls } from "@/components/ui/map";
+import { Turnstile, turnstileEnabled } from "@/components/turnstile";
 import {
   Phone,
   Mail,
@@ -94,6 +95,7 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -102,6 +104,12 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (turnstileEnabled && !captchaToken) {
+      setSubmitError("Please complete the verification below.");
+      return;
+    }
+
     setLoading(true);
     setSubmitError(null);
 
@@ -109,7 +117,7 @@ export default function ContactPage() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, turnstileToken: captchaToken }),
       });
       if (!res.ok) throw new Error("Request failed");
     } catch {
@@ -239,6 +247,10 @@ export default function ContactPage() {
                     className="w-full rounded-xl border-2 border-border bg-white px-4 py-3 text-text placeholder:text-text-tertiary transition-all duration-200 focus:border-primary-400 focus:outline-none focus:ring-4 focus:ring-primary-100 resize-y"
                   />
                 </div>
+                <Turnstile
+                  onVerify={setCaptchaToken}
+                  onExpire={() => setCaptchaToken(null)}
+                />
                 {submitError && (
                   <p className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600 border border-red-200">
                     {submitError}

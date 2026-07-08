@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { Turnstile, turnstileEnabled } from "@/components/turnstile";
 import {
   Target,
   BarChart3,
@@ -293,6 +294,7 @@ export default function EnrolPage() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
   const totalSteps = 4;
 
@@ -334,6 +336,10 @@ export default function EnrolPage() {
       setErrors(stepErrors);
       return;
     }
+    if (turnstileEnabled && !captchaToken) {
+      setSubmitError("Please complete the verification below.");
+      return;
+    }
     setLoading(true);
     setSubmitError(null);
 
@@ -341,7 +347,7 @@ export default function EnrolPage() {
       const res = await fetch("/api/enrol", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, turnstileToken: captchaToken }),
       });
       if (!res.ok) {
         const info = await res.json().catch(() => ({}));
@@ -928,17 +934,21 @@ export default function EnrolPage() {
                 <div>
                   <span className="font-medium text-navy-800">
                     I accept the{" "}
-                    <Link href="#" className="text-primary-600 hover:text-primary-700 underline underline-offset-2">
-                      Terms &amp; Conditions
+                    <Link href="/terms" target="_blank" className="text-primary-600 hover:text-primary-700 underline underline-offset-2">
+                      Terms of Service
                     </Link>{" "}
                     and{" "}
-                    <Link href="#" className="text-primary-600 hover:text-primary-700 underline underline-offset-2">
+                    <Link href="/privacy" target="_blank" className="text-primary-600 hover:text-primary-700 underline underline-offset-2">
                       Privacy Policy
                     </Link>
                   </span>
                 </div>
               </label>
               {errors.termsAccepted && <p className="text-sm text-red-500">{errors.termsAccepted}</p>}
+              <Turnstile
+                onVerify={setCaptchaToken}
+                onExpire={() => setCaptchaToken(null)}
+              />
               {submitError && (
                 <p className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600 border border-red-200">
                   {submitError}
