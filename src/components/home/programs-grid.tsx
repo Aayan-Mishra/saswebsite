@@ -9,6 +9,7 @@ import {
   BarChart3,
   Award,
   GraduationCap,
+  Trophy,
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
@@ -66,6 +67,15 @@ const programs = [
       "Expert support across Year 7–12 subjects with aligned syllabus content and exam preparation.",
     color: "text-primary-500",
     bg: "bg-primary-100",
+    href: "/marketing/programs",
+  },
+  {
+    icon: Trophy,
+    title: "HSC Excellence",
+    description:
+      "Maximise your ATAR with HSC prep — past-exam analysis, rubric-aligned marking, and intensive revision.",
+    color: "text-orange-500",
+    bg: "bg-orange-100",
     href: "/marketing/programs",
   },
 ];

@@ -82,14 +82,14 @@ const programs = [
     href: "/marketing/selective-preparation",
   },
   {
-    title: "High School Core",
+    title: "High School Mastery",
     years: "Years 7-10",
     type: "Core Subjects",
     icon: GraduationCap,
     color: "text-primary-600",
     bgColor: "bg-primary-50",
     description:
-      "Build a strong academic foundation for senior years. Our High School Core program covers English, Mathematics, and Science with expert guidance.",
+      "Build a strong academic foundation for senior years. Our High School Mastery program covers English, Mathematics, and Science with expert guidance.",
     href: "/enrol",
   },
   {
