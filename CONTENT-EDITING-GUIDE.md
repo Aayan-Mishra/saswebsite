@@ -69,20 +69,18 @@ it; it doesn't appear on the website.
 
 ---
 
-## Changing the home page background video size
+## Changing the home page background video
 
-In `home.json`, inside the `hero` section, there are two settings that control how
-the background video fits the banner:
+In `home.json`, inside the `hero` section, there is a `videoUrl` setting:
 
 ```
-"videoWidth": "1920",
-"videoHeight": "1080"
+"videoUrl": "https://....mp4"
 ```
 
-These should match the **actual resolution of your video**. For a standard
-widescreen video use `1920` × `1080`. If you swap in a video with a different
-shape (for example a tall/portrait video at `1080` × `1920`), update these two
-numbers to match and the banner will fit it correctly with no black bars.
+To swap the background video, upload the new video (an `.mp4` file) to your
+Supabase storage bucket, copy its URL, and paste it between the quotes. The
+banner automatically fits any video shape (it crops to fill, so there are never
+black bars) — you don't need to set any width or height.
 
 ---
 

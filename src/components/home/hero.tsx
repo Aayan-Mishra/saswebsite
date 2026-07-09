@@ -31,17 +31,19 @@ const item = {
 export function Hero() {
   return (
     <section className="relative overflow-hidden py-20 md:py-32 lg:py-40">
-      {/* Background video — 16:9 (1920x1080) sized to fully cover the hero with
-          no letterboxing. aspect-ratio holds 16:9 while min-w/h:100% guarantee
-          it always overflows the container on the shorter axis (cropped, never
-          distorted, never leaving negative space). */}
+      {/* Background video — a plain MP4 (e.g. a Supabase storage URL, set in
+          home.json). object-cover fills the hero and crops overflow for any
+          resolution, so no width/height tuning is needed. Muted + playsInline so
+          it autoplays on mobile. */}
       <div className="absolute inset-0 overflow-hidden">
-        <iframe
-          src="https://player.vimeo.com/video/1206654297?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1"
-          className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-          style={{ aspectRatio: `${c.videoWidth} / ${c.videoHeight}`, minWidth: "100%", minHeight: "100%", width: "auto", height: "auto" }}
-          allow="autoplay; fullscreen; picture-in-picture"
-          title="RAILWAY - WEBSITE"
+        <video
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+          src={c.videoUrl}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
         />
       </div>
       {/* Dark overlay for readability */}
