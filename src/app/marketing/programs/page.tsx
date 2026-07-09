@@ -20,6 +20,9 @@ import {
   Globe,
   ArrowRight,
 } from "lucide-react";
+import content from "@/text/programs.json";
+
+const p = content.programs;
 
 const yearLevels = ["All", "Early Years", "Years 1-2", "Years 3-4", "Years 5-6", "Years 7-8", "Years 9-10", "Years 11-12"];
 
@@ -27,91 +30,83 @@ const programTypes = ["All", "Foundation", "Exam Prep", "Core Subjects", "Subjec
 
 const programs = [
   {
-    title: "Kindergarten Readiness",
+    title: p.kindergartenTitle,
     years: "Early Years",
     type: "Foundation",
     icon: Sparkles,
     color: "text-orange-500",
     bgColor: "bg-orange-50",
-    description:
-      "Build foundational literacy and numeracy skills in a warm, engaging environment. Our early learning program gives your child a launchpad for school success.",
+    description: p.kindergartenDescription,
     href: "/enrol",
   },
   {
-    title: "Primary Excellence",
+    title: p.primaryTitle,
     years: "Years 1-4",
     type: "Core Subjects",
     icon: BookOpen,
     color: "text-primary-500",
     bgColor: "bg-primary-50",
-    description:
-      "Strengthen core skills in English and mathematics with a curriculum designed to accelerate progress. Small-group sessions build confidence and curiosity.",
+    description: p.primaryDescription,
     href: "/enrol",
   },
   {
-    title: "OC Preparation",
+    title: p.ocTitle,
     years: "Years 3-4",
     type: "Exam Prep",
     icon: Target,
     color: "text-gold-500",
     bgColor: "bg-gold-50",
-    description:
-      "A targeted program designed to equip students with the skills, strategies, and confidence to excel in the Opportunity Class Placement Test.",
+    description: p.ocDescription,
     href: "/marketing/oc-preparation",
   },
   {
-    title: "NAPLAN Success",
+    title: p.naplanTitle,
     years: "Years 3, 5, 7, 9",
     type: "Exam Prep",
     icon: BarChart3,
     color: "text-secondary-500",
     bgColor: "bg-secondary-50",
-    description:
-      "Master the NAPLAN assessment with focused practice, expert feedback, and proven strategies. We help students approach test day with confidence.",
+    description: p.naplanDescription,
     href: "/marketing/naplan-preparation",
   },
   {
-    title: "Selective Preparation",
+    title: p.selectiveTitle,
     years: "Years 5-6",
     type: "Exam Prep",
     icon: Brain,
     color: "text-navy-700",
     bgColor: "bg-navy-50",
-    description:
-      "Our flagship Selective program delivers comprehensive preparation for the Selective High School Placement Test. Rigorous curriculum, mock exams, and personalised feedback.",
+    description: p.selectiveDescription,
     href: "/marketing/selective-preparation",
   },
   {
-    title: "High School Mastery",
+    title: p.highSchoolTitle,
     years: "Years 7-10",
     type: "Core Subjects",
     icon: GraduationCap,
     color: "text-primary-600",
     bgColor: "bg-primary-50",
-    description:
-      "Build a strong academic foundation for senior years. Our High School Mastery program covers English, Mathematics, and Science with expert guidance.",
+    description: p.highSchoolDescription,
     href: "/enrol",
   },
   {
-    title: "HSC Excellence",
+    title: p.hscTitle,
     years: "Years 11-12",
     type: "Exam Prep",
     icon: Target,
     color: "text-orange-600",
     bgColor: "bg-orange-50",
-    description:
-      "Maximise your ATAR with our HSC preparation program. Past exam analysis, rubric-aligned marking, and intensive revision sessions designed to accelerate your results.",
+    description: p.hscDescription,
     href: "/enrol",
   },
   {
-    title: "Subject Specialist",
+    title: p.subjectSpecialistTitle,
     years: "Years 7-12",
     type: "Subject Specialist",
     icon: Beaker,
     color: "text-gold-600",
     bgColor: "bg-gold-50",
-    description:
-      "Deep-dive into specific subjects — from advanced Mathematics and Sciences to Languages and Humanities. Tailored one-on-one and small-group intensives.",
+    description: p.subjectSpecialistDescription,
     href: "/enrol",
   },
 ];
@@ -136,8 +131,8 @@ export default function ProgramsPage() {
   return (
     <main>
       <PageHeader
-        title="Our Programs"
-        description="Every student deserves a learning experience that matches their ambition. Explore our comprehensive suite of programs designed to accelerate achievement at every stage."
+        title={content.pageHeader.title}
+        description={content.pageHeader.description}
       />
 
       <Section background="muted">
@@ -148,7 +143,7 @@ export default function ProgramsPage() {
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-text-tertiary" />
             <input
               type="text"
-              placeholder="Search programs..."
+              placeholder={content.ui.searchPlaceholder}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full rounded-xl border-2 border-border bg-white pl-12 pr-4 py-3 text-text placeholder:text-text-tertiary transition-all duration-200 focus:border-primary-400 focus:outline-none focus:ring-4 focus:ring-primary-100"
@@ -158,7 +153,7 @@ export default function ProgramsPage() {
           {/* Filters */}
           <div className="flex flex-wrap items-center justify-center gap-4">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-sm font-medium text-text-secondary mr-1">Year Level:</span>
+              <span className="text-sm font-medium text-text-secondary mr-1">{content.ui.yearLevelLabel}</span>
               {yearLevels.map((year) => (
                 <button
                   key={year}
@@ -176,7 +171,7 @@ export default function ProgramsPage() {
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-2">
-            <span className="text-sm font-medium text-text-secondary mr-1">Program Type:</span>
+            <span className="text-sm font-medium text-text-secondary mr-1">{content.ui.programTypeLabel}</span>
             {programTypes.map((type) => (
               <button
                 key={type}
@@ -196,7 +191,7 @@ export default function ProgramsPage() {
         {/* Program Grid */}
         {filteredPrograms.length === 0 ? (
           <div className="text-center py-16">
-            <p className="text-lg text-text-secondary">No programs match your search criteria. Try adjusting your filters.</p>
+            <p className="text-lg text-text-secondary">{content.ui.emptyState}</p>
           </div>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -221,7 +216,7 @@ export default function ProgramsPage() {
                   <div className="mt-6">
                     <Link href={program.href}>
                       <Button variant="outline" size="md" className="w-full">
-                        Explore Program
+                        {content.ui.exploreButton}
                         <ArrowRight className="h-4 w-4" />
                       </Button>
                     </Link>
@@ -236,19 +231,19 @@ export default function ProgramsPage() {
       {/* Bottom CTA */}
       <Section background="navy">
         <div className="text-center max-w-2xl mx-auto">
-          <SectionTitle className="text-white">Not Sure Where to Start?</SectionTitle>
+          <SectionTitle className="text-white">{content.bottomCta.title}</SectionTitle>
           <SectionSubtitle className="text-navy-200 mx-auto">
-            Book a free consultation and we will map out the perfect learning pathway for your child.
+            {content.bottomCta.subtitle}
           </SectionSubtitle>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link href="/enrol">
               <Button variant="gold" size="lg">
-                Book Free Assessment
+                {content.bottomCta.primaryButton}
               </Button>
             </Link>
             <Link href="/marketing/contact">
               <Button variant="secondary" size="lg">
-                Talk to Our Team
+                {content.bottomCta.secondaryButton}
               </Button>
             </Link>
           </div>

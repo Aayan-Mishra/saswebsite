@@ -10,7 +10,9 @@
     "statSuccessValue": "98%",
     "statSuccessLabel": "Success Rate",
     "statStudentsValue": "2,000+",
-    "statStudentsLabel": "Students"
+    "statStudentsLabel": "Students",
+    "videoWidth": "1920",
+    "videoHeight": "1080"
   },
   "trustStats": {
     "title": "Trusted by Families Across Sydney",

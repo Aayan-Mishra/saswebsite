@@ -4,8 +4,9 @@ All of the website's wording lives in a folder called **`text`**, with **one fil
 per page**:
 
 ```
-src/text/home.json     ← the home (landing) page
-src/text/about.json    ← the About page
+src/text/home.json       ← the home (landing) page
+src/text/about.json      ← the About page
+src/text/programs.json   ← the Programs page
 ```
 
 More pages will be added as separate files in this same `text` folder over time.
@@ -65,6 +66,23 @@ match what you see on the page, so they're easy to find.
 
 The very first line of each file (`_README`) is a reminder note — you can ignore
 it; it doesn't appear on the website.
+
+---
+
+## Changing the home page background video size
+
+In `home.json`, inside the `hero` section, there are two settings that control how
+the background video fits the banner:
+
+```
+"videoWidth": "1920",
+"videoHeight": "1080"
+```
+
+These should match the **actual resolution of your video**. For a standard
+widescreen video use `1920` × `1080`. If you swap in a video with a different
+shape (for example a tall/portrait video at `1080` × `1920`), update these two
+numbers to match and the banner will fit it correctly with no black bars.
 
 ---
 

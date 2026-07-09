@@ -39,7 +39,7 @@ export function Hero() {
         <iframe
           src="https://player.vimeo.com/video/1206654297?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1"
           className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-          style={{ aspectRatio: "16 / 9", minWidth: "100%", minHeight: "100%", width: "auto", height: "auto" }}
+          style={{ aspectRatio: `${c.videoWidth} / ${c.videoHeight}`, minWidth: "100%", minHeight: "100%", width: "auto", height: "auto" }}
           allow="autoplay; fullscreen; picture-in-picture"
           title="RAILWAY - WEBSITE"
         />

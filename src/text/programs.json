@@ -1,0 +1,38 @@
+{
+  "_README": "EDITABLE TEXT — PROGRAMS PAGE. Change only the text INSIDE the quotes on the right of each colon (:). Do NOT change the labels on the left, and keep every quote (\"), comma (,) and curly brace ({ }) exactly where it is. Save the file and the website updates automatically. Note: the year-level and program-type badges are set in code because they power the on-page filters, so they are not listed here.",
+  "pageHeader": {
+    "title": "Our Programs",
+    "description": "Every student deserves a learning experience that matches their ambition. Explore our comprehensive suite of programs designed to accelerate achievement at every stage."
+  },
+  "ui": {
+    "searchPlaceholder": "Search programs...",
+    "yearLevelLabel": "Year Level:",
+    "programTypeLabel": "Program Type:",
+    "emptyState": "No programs match your search criteria. Try adjusting your filters.",
+    "exploreButton": "Explore Program"
+  },
+  "programs": {
+    "kindergartenTitle": "Kindergarten Readiness",
+    "kindergartenDescription": "Build foundational literacy and numeracy skills in a warm, engaging environment. Our early learning program gives your child a launchpad for school success.",
+    "primaryTitle": "Primary Excellence",
+    "primaryDescription": "Strengthen core skills in English and mathematics with a curriculum designed to accelerate progress. Small-group sessions build confidence and curiosity.",
+    "ocTitle": "OC Preparation",
+    "ocDescription": "A targeted program designed to equip students with the skills, strategies, and confidence to excel in the Opportunity Class Placement Test.",
+    "naplanTitle": "NAPLAN Success",
+    "naplanDescription": "Master the NAPLAN assessment with focused practice, expert feedback, and proven strategies. We help students approach test day with confidence.",
+    "selectiveTitle": "Selective Preparation",
+    "selectiveDescription": "Our flagship Selective program delivers comprehensive preparation for the Selective High School Placement Test. Rigorous curriculum, mock exams, and personalised feedback.",
+    "highSchoolTitle": "High School Mastery",
+    "highSchoolDescription": "Build a strong academic foundation for senior years. Our High School Mastery program covers English, Mathematics, and Science with expert guidance.",
+    "hscTitle": "HSC Excellence",
+    "hscDescription": "Maximise your ATAR with our HSC preparation program. Past exam analysis, rubric-aligned marking, and intensive revision sessions designed to accelerate your results.",
+    "subjectSpecialistTitle": "Subject Specialist",
+    "subjectSpecialistDescription": "Deep-dive into specific subjects — from advanced Mathematics and Sciences to Languages and Humanities. Tailored one-on-one and small-group intensives."
+  },
+  "bottomCta": {
+    "title": "Not Sure Where to Start?",
+    "subtitle": "Book a free consultation and we will map out the perfect learning pathway for your child.",
+    "primaryButton": "Book Free Assessment",
+    "secondaryButton": "Talk to Our Team"
+  }
+}
