@@ -2,33 +2,36 @@ import { Section, SectionTitle } from "@/components/ui/section";
 import { Card } from "@/components/ui/card";
 import { Reveal } from "@/components/ui/reveal";
 import { Users, Star, Clock, TrendingUp } from "lucide-react";
+import content from "@/content/site.json";
+
+const c = content.home.trustStats;
 
 const stats = [
   {
     icon: Users,
-    value: "2,000+",
-    label: "Students Tutored",
+    value: c.studentsTutoredValue,
+    label: c.studentsTutoredLabel,
     color: "text-primary-500",
     bg: "bg-primary-100",
   },
   {
     icon: Star,
-    value: "98%",
-    label: "Parent Satisfaction",
+    value: c.parentSatisfactionValue,
+    label: c.parentSatisfactionLabel,
     color: "text-gold-500",
     bg: "bg-gold-100",
   },
   {
     icon: Clock,
-    value: "20+",
-    label: "Years Experience",
+    value: c.yearsExperienceValue,
+    label: c.yearsExperienceLabel,
     color: "text-navy-500",
     bg: "bg-navy-100",
   },
   {
     icon: TrendingUp,
-    value: "92%",
-    label: "Improvement Rate",
+    value: c.improvementRateValue,
+    label: c.improvementRateLabel,
     color: "text-secondary-500",
     bg: "bg-secondary-100",
   },
@@ -39,7 +42,7 @@ export function TrustStats() {
     <Section background="muted">
       <div className="text-center mb-12">
         <SectionTitle className="text-2xl md:text-3xl">
-          Trusted by Families Across Sydney
+          {c.title}
         </SectionTitle>
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">

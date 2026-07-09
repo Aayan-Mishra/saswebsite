@@ -1,46 +1,45 @@
 import { Section, SectionTitle, SectionSubtitle } from "@/components/ui/section";
 import { Card } from "@/components/ui/card";
 import { Star } from "lucide-react";
+import content from "@/content/site.json";
+
+const c = content.home.testimonials;
 
 const testimonials = [
   {
     initials: "LM",
-    name: "Lisa Mitchell",
-    role: "Parent of Year 5 Student",
+    name: c.t1Name,
+    role: c.t1Role,
     rating: 5,
-    quote:
-      "The transformation in our daughter's confidence has been remarkable. She went from dreading Mathematics to actually looking forward to her tutoring sessions. The personalised approach made all the difference.",
-    outcome: "Achieved 95% in OC Placement Test",
+    quote: c.t1Quote,
+    outcome: c.t1Outcome,
     color: "bg-primary-100 text-primary-700",
   },
   {
     initials: "JP",
-    name: "James & Priya Patel",
-    role: "Parents of Year 3 & Year 7",
+    name: c.t2Name,
+    role: c.t2Role,
     rating: 5,
-    quote:
-      "Both our children attend for different programs and the progress tracking portal keeps us informed every step of the way. The tutors are genuinely invested in each child's success.",
-    outcome: "Both children improved by 2+ grade levels",
+    quote: c.t2Quote,
+    outcome: c.t2Outcome,
     color: "bg-gold-100 text-gold-800",
   },
   {
     initials: "LC",
-    name: "Lisa Chen",
-    role: "Parent of Year 9 Student",
+    name: c.t3Name,
+    role: c.t3Role,
     rating: 5,
-    quote:
-      "Selective preparation felt overwhelming until we found Success at School. Their structured approach and mock test strategy gave our son the edge he needed. Couldn't be happier with the outcome.",
-    outcome: "Offered placement at Sydney Boys High",
+    quote: c.t3Quote,
+    outcome: c.t3Outcome,
     color: "bg-secondary-100 text-secondary-700",
   },
   {
     initials: "RT",
-    name: "Robert Thompson",
-    role: "Parent of Kindergarten Student",
+    name: c.t4Name,
+    role: c.t4Role,
     rating: 4,
-    quote:
-      "Starting school can be daunting but the Kindergarten program made it a joy. Our son's reading improved dramatically and he loves going to his sessions. The foundation built here is invaluable.",
-    outcome: "Reading at Year 1 level by term 3",
+    quote: c.t4Quote,
+    outcome: c.t4Outcome,
     color: "bg-navy-100 text-navy-800",
   },
 ];
@@ -49,10 +48,9 @@ export function Testimonials() {
   return (
     <Section background="muted">
       <div className="text-center mb-12">
-        <SectionTitle>Real Results, Real Families</SectionTitle>
+        <SectionTitle>{c.title}</SectionTitle>
         <SectionSubtitle className="mx-auto">
-          Hear from parents and students who have experienced the Success at
-          School difference.
+          {c.subtitle}
         </SectionSubtitle>
       </div>
       <div className="grid md:grid-cols-2 gap-6">

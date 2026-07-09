@@ -5,34 +5,37 @@ import {
   Users,
   TrendingUp,
 } from "lucide-react";
+import content from "@/content/site.json";
+
+const c = content.home.howItWorks;
 
 const steps = [
   {
     number: "01",
     icon: Compass,
-    title: "Choose Your Goal",
-    description: "Select your year level and program",
+    title: c.step1Title,
+    description: c.step1Description,
     color: "from-primary-500 to-secondary-500",
   },
   {
     number: "02",
     icon: ClipboardCheck,
-    title: "Complete Enrolment",
-    description: "Quick online enrolment in minutes",
+    title: c.step2Title,
+    description: c.step2Description,
     color: "from-secondary-500 to-primary-500",
   },
   {
     number: "03",
     icon: Users,
-    title: "Get Matched",
-    description: "Paired with the perfect tutor for you",
+    title: c.step3Title,
+    description: c.step3Description,
     color: "from-primary-500 to-gold-400",
   },
   {
     number: "04",
     icon: TrendingUp,
-    title: "Track Progress",
-    description: "Monitor growth through your portal",
+    title: c.step4Title,
+    description: c.step4Description,
     color: "from-gold-400 to-primary-500",
   },
 ];
@@ -41,9 +44,9 @@ export function HowItWorks() {
   return (
     <Section background="muted">
       <div className="text-center mb-14">
-        <SectionTitle>How It Works</SectionTitle>
+        <SectionTitle>{c.title}</SectionTitle>
         <SectionSubtitle className="mx-auto">
-          Getting started is simple. Four steps to academic acceleration.
+          {c.subtitle}
         </SectionSubtitle>
       </div>
       <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">

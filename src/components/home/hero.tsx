@@ -5,6 +5,9 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import content from "@/content/site.json";
+
+const c = content.home.hero;
 
 const container = {
   hidden: {},
@@ -55,7 +58,7 @@ export function Hero() {
         >
           <motion.div variants={item}>
             <Badge variant="primary" size="md" className="mb-6">
-              Sydney&apos;s Trusted Tutoring Experts
+              {c.badge}
             </Badge>
           </motion.div>
 
@@ -63,17 +66,15 @@ export function Hero() {
             variants={item}
             className="max-w-4xl text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white tracking-tight text-balance leading-[1.05]"
           >
-            Helping Students{" "}
-            <span className="text-primary-300">Launch Ahead</span>
+            {c.titleStart}{" "}
+            <span className="text-primary-300">{c.titleHighlight}</span>
           </motion.h1>
 
           <motion.p
             variants={item}
             className="mt-6 max-w-2xl text-lg md:text-xl text-navy-200 leading-relaxed text-balance"
           >
-            Premium tutoring from Kindergarten to Year 12 — with specialised
-            OC, NAPLAN, and Selective preparation that builds confidence and
-            delivers real results.
+            {c.subtitle}
           </motion.p>
 
           <motion.div
@@ -82,13 +83,13 @@ export function Hero() {
           >
             <Link href="/enrol">
               <Button variant="primary" size="lg">
-                Enrol Now
+                {c.primaryButton}
                 <ArrowRight className="h-5 w-5" />
               </Button>
             </Link>
             <Link href="/marketing/contact">
               <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-                Book a Consultation
+                {c.secondaryButton}
               </Button>
             </Link>
           </motion.div>
@@ -102,8 +103,8 @@ export function Hero() {
                 <CheckCircle2 className="h-6 w-6 text-primary-600" />
               </div>
               <div className="text-left">
-                <p className="text-2xl font-bold text-navy-900">98%</p>
-                <p className="text-sm text-text-secondary">Success Rate</p>
+                <p className="text-2xl font-bold text-navy-900">{c.statSuccessValue}</p>
+                <p className="text-sm text-text-secondary">{c.statSuccessLabel}</p>
               </div>
               <div className="mx-4 h-10 w-px bg-border" />
               <div className="flex -space-x-2">
@@ -115,8 +116,8 @@ export function Hero() {
                 ))}
               </div>
               <div className="text-left">
-                <p className="text-sm font-semibold text-navy-900">2,000+</p>
-                <p className="text-xs text-text-secondary">Students</p>
+                <p className="text-sm font-semibold text-navy-900">{c.statStudentsValue}</p>
+                <p className="text-xs text-text-secondary">{c.statStudentsLabel}</p>
               </div>
             </div>
           </motion.div>

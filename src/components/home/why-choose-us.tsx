@@ -10,42 +10,40 @@ import {
   Eye,
 } from "lucide-react";
 
+import content from "@/content/site.json";
+
+const c = content.home.whyChooseUs;
+
 const benefits = [
   {
     icon: BookOpen,
-    title: "Structured Learning",
-    description:
-      "Research-backed curriculum aligned with the Australian syllabus",
+    title: c.structuredLearningTitle,
+    description: c.structuredLearningDescription,
   },
   {
     icon: HeartHandshake,
-    title: "Personalised Support",
-    description:
-      "Tailored programs adapted to each student's unique learning style",
+    title: c.personalisedSupportTitle,
+    description: c.personalisedSupportDescription,
   },
   {
     icon: TrendingUp,
-    title: "Progress Tracking",
-    description:
-      "Real-time insights into your child's academic growth",
+    title: c.progressTrackingTitle,
+    description: c.progressTrackingDescription,
   },
   {
     icon: Target,
-    title: "Exam Strategy",
-    description:
-      "Proven techniques for OC, NAPLAN, and Selective success",
+    title: c.examStrategyTitle,
+    description: c.examStrategyDescription,
   },
   {
     icon: Users,
-    title: "Small Groups & One-on-One",
-    description:
-      "Flexible formats to suit every learner",
+    title: c.smallGroupsTitle,
+    description: c.smallGroupsDescription,
   },
   {
     icon: Eye,
-    title: "Parent Visibility",
-    description:
-      "Full access to session notes, reports, and tutor communication",
+    title: c.parentVisibilityTitle,
+    description: c.parentVisibilityDescription,
   },
 ];
 
@@ -55,7 +53,7 @@ export function WhyChooseUs() {
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div>
           <SectionTitle className="text-white !text-3xl md:!text-4xl">
-            Why Families Choose Success at School
+            {c.title}
           </SectionTitle>
           <div className="mt-10 space-y-6">
             {benefits.map((benefit) => {

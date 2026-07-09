@@ -7,33 +7,16 @@ import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { faqSchema } from "@/lib/seo";
+import content from "@/content/site.json";
+
+const c = content.home.faq;
 
 const faqs = [
-  {
-    question: "What are your fees and how do payment plans work?",
-    answer:
-      "Fees vary by program, year level, and session format (group or individual). We offer flexible fortnightly and monthly payment plans to make quality tutoring accessible. Contact us for a personalised fee schedule tailored to your child's needs.",
-  },
-  {
-    question: "Do you offer small group or one-on-one tutoring?",
-    answer:
-      "Both. We provide small group sessions for collaborative learning, as well as dedicated one-on-one tutoring for students who need individual attention. Many families choose a mix of both formats across different subjects.",
-  },
-  {
-    question: "Can we try a lesson before committing?",
-    answer:
-      "Absolutely. We offer a no-obligation trial lesson so you and your child can experience our teaching approach firsthand. There's no commitment — just a chance to meet the tutor and see if it's the right fit.",
-  },
-  {
-    question: "What year levels and subjects do you cover?",
-    answer:
-      "We tutor Kindergarten through Year 12 across all core subjects including English, Mathematics, Science, and Humanities. We also offer specialised programs for OC, NAPLAN, and Selective School exam preparation.",
-  },
-  {
-    question: "What happens if my child misses a lesson?",
-    answer:
-      "We understand life gets busy. You can reschedule with at least 24 hours' notice at no extra cost. For unforeseen circumstances, we work with families to find a suitable make-up time or provide session materials to keep progress on track.",
-  },
+  { question: c.q1Question, answer: c.q1Answer },
+  { question: c.q2Question, answer: c.q2Answer },
+  { question: c.q3Question, answer: c.q3Answer },
+  { question: c.q4Question, answer: c.q4Answer },
+  { question: c.q5Question, answer: c.q5Answer },
 ];
 
 export function FaqPreview() {
@@ -47,9 +30,9 @@ export function FaqPreview() {
     <Section id="faq">
       <JsonLd data={faqSchema(faqs)} />
       <div className="text-center mb-12">
-        <SectionTitle>Got Questions?</SectionTitle>
+        <SectionTitle>{c.title}</SectionTitle>
         <SectionSubtitle className="mx-auto">
-          Quick answers to the most common questions about our programs.
+          {c.subtitle}
         </SectionSubtitle>
       </div>
       <div className="mx-auto max-w-3xl space-y-3">
@@ -95,7 +78,7 @@ export function FaqPreview() {
           href="/marketing/faq"
           className="inline-flex items-center gap-2 text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors"
         >
-          View All FAQs
+          {c.viewAllLabel}
           <ChevronDown className="h-4 w-4 -rotate-90" />
         </Link>
       </div>

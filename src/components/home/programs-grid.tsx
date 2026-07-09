@@ -13,67 +13,63 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
+import content from "@/content/site.json";
+
+const c = content.home.programs;
 
 const programs = [
   {
     icon: Baby,
-    title: "Kindergarten Readiness",
-    description:
-      "Build early literacy, numeracy, and social skills to give your child a confident head start.",
+    title: c.kindergartenTitle,
+    description: c.kindergartenDescription,
     color: "text-primary-500",
     bg: "bg-primary-100",
     href: "/marketing/programs",
   },
   {
     icon: BookOpen,
-    title: "Primary Excellence",
-    description:
-      "Strengthen core subjects and develop critical thinking skills across all key learning areas.",
+    title: c.primaryTitle,
+    description: c.primaryDescription,
     color: "text-secondary-500",
     bg: "bg-secondary-100",
     href: "/marketing/programs",
   },
   {
     icon: Target,
-    title: "OC Preparation",
-    description:
-      "Targeted strategy and practice for Opportunity Class placement with past paper mastery.",
+    title: c.ocTitle,
+    description: c.ocDescription,
     color: "text-orange-500",
     bg: "bg-orange-100",
     href: "/marketing/oc-preparation",
   },
   {
     icon: BarChart3,
-    title: "NAPLAN Success",
-    description:
-      "Confidence-building preparation across all NAPLAN domains with proven test-taking strategies.",
+    title: c.naplanTitle,
+    description: c.naplanDescription,
     color: "text-navy-500",
     bg: "bg-navy-100",
     href: "/marketing/naplan-preparation",
   },
   {
     icon: Award,
-    title: "Selective Preparation",
-    description:
-      "Comprehensive Selective exam training with mock tests, time management, and targeted feedback.",
+    title: c.selectiveTitle,
+    description: c.selectiveDescription,
     color: "text-gold-500",
     bg: "bg-gold-100",
     href: "/marketing/selective-preparation",
   },
   {
     icon: GraduationCap,
-    title: "High School Mastery",
-    description:
-      "Expert support across Year 7–12 subjects with aligned syllabus content and exam preparation.",
+    title: c.highSchoolTitle,
+    description: c.highSchoolDescription,
     color: "text-primary-500",
     bg: "bg-primary-100",
     href: "/marketing/programs",
   },
   {
     icon: Trophy,
-    title: "HSC Excellence",
-    description:
-      "Maximise your ATAR with HSC prep — past-exam analysis, rubric-aligned marking, and intensive revision.",
+    title: c.hscTitle,
+    description: c.hscDescription,
     color: "text-orange-500",
     bg: "bg-orange-100",
     href: "/marketing/programs",
@@ -84,10 +80,9 @@ export function ProgramsGrid() {
   return (
     <Section id="programs">
       <div className="text-center mb-12">
-        <SectionTitle>Find Your Program</SectionTitle>
+        <SectionTitle>{c.title}</SectionTitle>
         <SectionSubtitle className="mx-auto">
-          From Kindergarten foundations to OC, NAPLAN, and Selective exam
-          mastery — we have the right program for every student.
+          {c.subtitle}
         </SectionSubtitle>
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
