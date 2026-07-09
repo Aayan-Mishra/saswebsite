@@ -7,9 +7,9 @@ import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { faqSchema } from "@/lib/seo";
-import content from "@/content/site.json";
+import content from "@/text/home.json";
 
-const c = content.home.faq;
+const c = content.faq;
 
 const faqs = [
   { question: c.q1Question, answer: c.q1Answer },

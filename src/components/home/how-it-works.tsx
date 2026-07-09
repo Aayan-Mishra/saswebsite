@@ -5,9 +5,9 @@ import {
   Users,
   TrendingUp,
 } from "lucide-react";
-import content from "@/content/site.json";
+import content from "@/text/home.json";
 
-const c = content.home.howItWorks;
+const c = content.howItWorks;
 
 const steps = [
   {

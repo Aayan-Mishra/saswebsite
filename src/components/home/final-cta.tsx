@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import content from "@/content/site.json";
+import content from "@/text/home.json";
 
-const c = content.home.finalCta;
+const c = content.finalCta;
 
 export function FinalCta() {
   return (

@@ -2,9 +2,9 @@ import { Section, SectionTitle } from "@/components/ui/section";
 import { Card } from "@/components/ui/card";
 import { Reveal } from "@/components/ui/reveal";
 import { Users, Star, Clock, TrendingUp } from "lucide-react";
-import content from "@/content/site.json";
+import content from "@/text/home.json";
 
-const c = content.home.trustStats;
+const c = content.trustStats;
 
 const stats = [
   {

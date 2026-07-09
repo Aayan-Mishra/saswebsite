@@ -1,9 +1,9 @@
 import { Section, SectionTitle, SectionSubtitle } from "@/components/ui/section";
 import { Card } from "@/components/ui/card";
 import { Star } from "lucide-react";
-import content from "@/content/site.json";
+import content from "@/text/home.json";
 
-const c = content.home.testimonials;
+const c = content.testimonials;
 
 const testimonials = [
   {

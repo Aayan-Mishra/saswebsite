@@ -19,86 +19,36 @@ import {
   Shield,
   Award,
 } from "lucide-react";
+import about from "@/text/about.json";
 
 const teamMembers = [
-  {
-    name: "Lisa Duong",
-    role: "Founder & Head of Curriculum",
-    initials: "LD",
-    color: "bg-primary-100 text-primary-700",
-  },
-  {
-    name: "James Chen",
-    role: "Director of Operations",
-    initials: "JC",
-    color: "bg-gold-100 text-gold-800",
-  },
-  {
-    name: "Emily Rodriguez",
-    role: "Head of Mathematics",
-    initials: "ER",
-    color: "bg-secondary-100 text-secondary-700",
-  },
-  {
-    name: "Michael Thompson",
-    role: "Head of English & Writing",
-    initials: "MT",
-    color: "bg-navy-100 text-navy-800",
-  },
-  {
-    name: "Priya Sharma",
-    role: "Head of OC & Selective",
-    initials: "PS",
-    color: "bg-orange-100 text-orange-700",
-  },
-  {
-    name: "David Kim",
-    role: "Head of Science & HSC",
-    initials: "DK",
-    color: "bg-primary-100 text-primary-700",
-  },
+  { name: about.team.member1Name, role: about.team.member1Role, initials: "LD", color: "bg-primary-100 text-primary-700" },
+  { name: about.team.member2Name, role: about.team.member2Role, initials: "JC", color: "bg-gold-100 text-gold-800" },
+  { name: about.team.member3Name, role: about.team.member3Role, initials: "ER", color: "bg-secondary-100 text-secondary-700" },
+  { name: about.team.member4Name, role: about.team.member4Role, initials: "MT", color: "bg-navy-100 text-navy-800" },
+  { name: about.team.member5Name, role: about.team.member5Role, initials: "PS", color: "bg-orange-100 text-orange-700" },
+  { name: about.team.member6Name, role: about.team.member6Role, initials: "DK", color: "bg-primary-100 text-primary-700" },
 ];
 
 const stats = [
-  { value: "2,500+", label: "Students Taught", icon: GraduationCap },
-  { value: "12+", label: "Years of Excellence", icon: Award },
-  { value: "98%", label: "Parent Satisfaction", icon: Heart },
-  { value: "4.9", label: "Average Rating", icon: Star },
-  { value: "50+", label: "Expert Tutors", icon: Users },
-  { value: "3", label: "Campuses Across Sydney", icon: Shield },
+  { value: about.stats.stat1Value, label: about.stats.stat1Label, icon: GraduationCap },
+  { value: about.stats.stat2Value, label: about.stats.stat2Label, icon: Award },
+  { value: about.stats.stat3Value, label: about.stats.stat3Label, icon: Heart },
+  { value: about.stats.stat4Value, label: about.stats.stat4Label, icon: Star },
+  { value: about.stats.stat5Value, label: about.stats.stat5Label, icon: Users },
+  { value: about.stats.stat6Value, label: about.stats.stat6Label, icon: Shield },
 ];
 
 const values = [
-  {
-    icon: Lightbulb,
-    title: "Academic Rigour",
-    description:
-      "We hold students to high standards because we know they can rise to meet them. Every lesson is designed to stretch thinking and deepen understanding.",
-  },
-  {
-    icon: Heart,
-    title: "Genuine Care",
-    description:
-      "We invest in every student as an individual. Their confidence, wellbeing, and love of learning matter as much as their test scores.",
-  },
-  {
-    icon: Target,
-    title: "Results Orientation",
-    description:
-      "Everything we do is measured against one question: is this helping our students launch ahead? If not, we change it.",
-  },
-  {
-    icon: Users,
-    title: "Partnership with Families",
-    description:
-      "We believe education is a team effort. Regular communication, detailed progress reports, and open dialogue keep families fully in the loop.",
-  },
+  { icon: Lightbulb, title: about.mission.value1Title, description: about.mission.value1Description },
+  { icon: Heart, title: about.mission.value2Title, description: about.mission.value2Description },
+  { icon: Target, title: about.mission.value3Title, description: about.mission.value3Description },
+  { icon: Users, title: about.mission.value4Title, description: about.mission.value4Description },
 ];
 
 export const metadata: Metadata = pageMetadata({
-  title: "About Us | Western Sydney's OC & Selective Tutors",
-  description:
-    "Meet Success at School — specialist OC, NAPLAN and Selective tutors serving Plumpton, Hassall Grove and Quakers Hill. Our mission, approach and proven student results.",
+  title: about.meta.title,
+  description: about.meta.description,
   path: "/marketing/about",
 });
 
@@ -112,8 +62,8 @@ export default function AboutPage() {
         ])}
       />
       <PageHeader
-        title="About Success at School"
-        description="We exist to help students launch ahead — academically, confidently, and with a genuine love for learning. Here is our story."
+        title={about.pageHeader.title}
+        description={about.pageHeader.description}
       />
 
       {/* Our Story */}
@@ -121,43 +71,29 @@ export default function AboutPage() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <Badge variant="primary" size="md" className="mb-4">
-              Our Story
+              {about.story.badge}
             </Badge>
-            <SectionTitle>Built from a Belief That Every Student Can Excel</SectionTitle>
+            <SectionTitle>{about.story.title}</SectionTitle>
             <SectionSubtitle className="max-w-none">
-              Success at School was founded in 2003 by Lisa Duong, a classroom teacher who saw too many
-              bright students fall through the cracks.
+              {about.story.subtitle}
             </SectionSubtitle>
             <div className="mt-6 space-y-4 text-text-secondary leading-relaxed">
-              <p>
-                Lisa noticed that the students who thrived were not necessarily the most naturally gifted — they were
-                the ones who had learned how to learn. They had strategies, they had confidence, and they had someone
-                who believed in their potential.
-              </p>
-              <p>
-                That insight became the foundation of Success at School. We built a tutoring model that combines
-                academic rigour with genuine mentorship, small-group dynamics with personalised attention, and proven
-                methodology with innovative teaching.
-              </p>
-              <p>
-                Over a decade later, we have helped thousands of students achieve outcomes they once thought
-                impossible — selective school placements, top-band NAPLAN results, HSC scores that open doors, and
-                most importantly, a belief in their own ability.
-              </p>
+              <p>{about.story.paragraph1}</p>
+              <p>{about.story.paragraph2}</p>
+              <p>{about.story.paragraph3}</p>
             </div>
           </div>
           <div className="bg-navy-900 rounded-2xl p-8 md:p-12 text-white">
             <blockquote className="text-xl md:text-2xl font-medium leading-relaxed">
-              &ldquo;Every student deserves to know what it feels like to be truly capable. Our job is not just to
-              teach — it is to unlock that realisation.&rdquo;
+              &ldquo;{about.story.quote}&rdquo;
             </blockquote>
             <div className="mt-6 flex items-center gap-3">
               <div className="w-12 h-12 rounded-full bg-primary-500 flex items-center justify-center font-bold text-lg">
                 LD
               </div>
               <div>
-                <p className="font-semibold">Lisa Duong</p>
-                <p className="text-sm text-navy-200">Founder, Success at School</p>
+                <p className="font-semibold">{about.story.founderName}</p>
+                <p className="text-sm text-navy-200">{about.story.founderTitle}</p>
               </div>
             </div>
           </div>
@@ -168,12 +104,11 @@ export default function AboutPage() {
       <Section>
         <div className="text-center max-w-3xl mx-auto mb-12">
           <Badge variant="gold" size="md" className="mb-4">
-            Our Mission
+            {about.mission.badge}
           </Badge>
-          <SectionTitle>To Accelerate Every Student&apos;s Potential</SectionTitle>
+          <SectionTitle>{about.mission.title}</SectionTitle>
           <SectionSubtitle className="mx-auto">
-            We are on a mission to transform the way students experience academic support — from something they
-            need to something they want.
+            {about.mission.subtitle}
           </SectionSubtitle>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -193,11 +128,11 @@ export default function AboutPage() {
       <Section background="primary">
         <div className="text-center mb-12">
           <Badge variant="gold" size="md" className="mb-4 text-navy-900">
-            By the Numbers
+            {about.stats.badge}
           </Badge>
-          <SectionTitle className="text-white">Our Impact</SectionTitle>
+          <SectionTitle className="text-white">{about.stats.title}</SectionTitle>
           <SectionSubtitle className="text-primary-100 mx-auto">
-            The numbers tell a story of consistent, life-changing outcomes.
+            {about.stats.subtitle}
           </SectionSubtitle>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
@@ -217,11 +152,11 @@ export default function AboutPage() {
       <Section>
         <div className="text-center mb-12">
           <Badge variant="navy" size="md" className="mb-4">
-            Meet the Team
+            {about.team.badge}
           </Badge>
-          <SectionTitle>The People Behind the Results</SectionTitle>
+          <SectionTitle>{about.team.title}</SectionTitle>
           <SectionSubtitle className="mx-auto">
-            Our tutors are more than teachers — they are mentors, motivators, and masters of their craft.
+            {about.team.subtitle}
           </SectionSubtitle>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -239,11 +174,11 @@ export default function AboutPage() {
         </div>
         <div className="text-center mt-10">
           <p className="text-text-secondary mb-4">
-            Our full team includes 50+ subject-specialist tutors across all key learning areas.
+            {about.team.fullTeamNote}
           </p>
           <Link href="/marketing/contact">
             <Button variant="outline" size="lg">
-              Meet Our Full Team
+              {about.team.ctaButton}
               <ArrowRight className="h-5 w-5" />
             </Button>
           </Link>
@@ -255,12 +190,11 @@ export default function AboutPage() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <Badge variant="primary" size="md" className="mb-4">
-              Our Approach
+              {about.approach.badge}
             </Badge>
-            <SectionTitle>How We Help Students Launch Ahead</SectionTitle>
+            <SectionTitle>{about.approach.title}</SectionTitle>
             <SectionSubtitle className="max-w-none">
-              Our methodology is built on three pillars: diagnostic precision, expert instruction, and continuous
-              feedback.
+              {about.approach.subtitle}
             </SectionSubtitle>
             <div className="mt-8 space-y-6">
               <div className="flex items-start gap-4">
@@ -268,10 +202,9 @@ export default function AboutPage() {
                   <span className="font-bold text-primary-600">1</span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-navy-900">Diagnose First</h3>
+                  <h3 className="font-bold text-navy-900">{about.approach.step1Title}</h3>
                   <p className="text-sm text-text-secondary mt-1">
-                    We never guess. Every student starts with a comprehensive assessment that identifies strengths,
-                    gaps, and learning style. This becomes the blueprint for their journey.
+                    {about.approach.step1Description}
                   </p>
                 </div>
               </div>
@@ -280,10 +213,9 @@ export default function AboutPage() {
                   <span className="font-bold text-primary-600">2</span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-navy-900">Teach with Purpose</h3>
+                  <h3 className="font-bold text-navy-900">{about.approach.step2Title}</h3>
                   <p className="text-sm text-text-secondary mt-1">
-                    Every lesson is intentional, structured, and engaging. Our tutors bring deep subject knowledge
-                    and a genuine passion for teaching that inspires students to do their best.
+                    {about.approach.step2Description}
                   </p>
                 </div>
               </div>
@@ -292,51 +224,50 @@ export default function AboutPage() {
                   <span className="font-bold text-primary-600">3</span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-navy-900">Measure and Adapt</h3>
+                  <h3 className="font-bold text-navy-900">{about.approach.step3Title}</h3>
                   <p className="text-sm text-text-secondary mt-1">
-                    Progress is tracked weekly, with detailed reports sent to families. We adapt our approach based
-                    on data, ensuring every minute of tuition delivers maximum impact.
+                    {about.approach.step3Description}
                   </p>
                 </div>
               </div>
             </div>
           </div>
           <Card padding="lg" className="bg-navy-50 border-navy-100">
-            <h3 className="text-xl font-bold text-navy-900 mb-4">The Success at School Difference</h3>
+            <h3 className="text-xl font-bold text-navy-900 mb-4">{about.approach.differenceTitle}</h3>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <Shield className="h-5 w-5 text-primary-500 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="font-semibold text-navy-900 text-sm">Research-Backed Curriculum</p>
+                  <p className="font-semibold text-navy-900 text-sm">{about.approach.difference1Title}</p>
                   <p className="text-xs text-text-secondary mt-0.5">
-                    Every lesson is informed by the latest cognitive science and syllabus requirements.
+                    {about.approach.difference1Description}
                   </p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Star className="h-5 w-5 text-gold-500 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="font-semibold text-navy-900 text-sm">Small Class Guarantee</p>
+                  <p className="font-semibold text-navy-900 text-sm">{about.approach.difference2Title}</p>
                   <p className="text-xs text-text-secondary mt-0.5">
-                    Small classes ensure every child gets the attention they deserve.
+                    {about.approach.difference2Description}
                   </p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Heart className="h-5 w-5 text-orange-500 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="font-semibold text-navy-900 text-sm">Holistic Development</p>
+                  <p className="font-semibold text-navy-900 text-sm">{about.approach.difference3Title}</p>
                   <p className="text-xs text-text-secondary mt-0.5">
-                    We build confidence, resilience, and a growth mindset alongside academic skills.
+                    {about.approach.difference3Description}
                   </p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Users className="h-5 w-5 text-secondary-500 mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="font-semibold text-navy-900 text-sm">Family Partnership</p>
+                  <p className="font-semibold text-navy-900 text-sm">{about.approach.difference4Title}</p>
                   <p className="text-xs text-text-secondary mt-0.5">
-                    Weekly updates, parent portals, and open communication keep everyone aligned.
+                    {about.approach.difference4Description}
                   </p>
                 </div>
               </div>
@@ -348,19 +279,19 @@ export default function AboutPage() {
       {/* Final CTA */}
       <Section background="navy">
         <div className="text-center max-w-2xl mx-auto">
-          <SectionTitle className="text-white">Ready to Join the Success at School Community?</SectionTitle>
+          <SectionTitle className="text-white">{about.finalCta.title}</SectionTitle>
           <SectionSubtitle className="text-navy-200 mx-auto">
-            Whether you are exploring options or ready to enrol, we would love to meet you and your child.
+            {about.finalCta.subtitle}
           </SectionSubtitle>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link href="/enrol">
               <Button variant="gold" size="lg">
-                Book a Free Assessment
+                {about.finalCta.primaryButton}
               </Button>
             </Link>
             <Link href="/marketing/contact">
               <Button variant="secondary" size="lg">
-                Get in Touch
+                {about.finalCta.secondaryButton}
               </Button>
             </Link>
           </div>

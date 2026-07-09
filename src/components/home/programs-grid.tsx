@@ -13,9 +13,9 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
-import content from "@/content/site.json";
+import content from "@/text/home.json";
 
-const c = content.home.programs;
+const c = content.programs;
 
 const programs = [
   {

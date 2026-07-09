@@ -10,9 +10,9 @@ import {
   Eye,
 } from "lucide-react";
 
-import content from "@/content/site.json";
+import content from "@/text/home.json";
 
-const c = content.home.whyChooseUs;
+const c = content.whyChooseUs;
 
 const benefits = [
   {
